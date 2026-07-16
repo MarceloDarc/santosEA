@@ -20,7 +20,15 @@
 
   > **Histórico dessa linha (importante, pra não errar de novo):** eu registrei primeiro que o vinho era "fundo alternativo/cards", extraindo do arquivo do logo. Depois "corrigi" pra "exclusivo do logo, não entra em peça", ao ver que nenhum material de marketing usava. **Essa segunda versão também estava errada, e pelo motivo mais sutil:** material antigo mostra o que *foi feito*, não o que *pode ser feito*. Eu tinha transformado observação de hábito em regra de marca. O Marc (a agência) decidiu em 15/07/2026 que o vinho entra — e ele está certo: preto + dourado sozinho é o clichê visual de toda estética e barbearia. O vinho é o que individualiza a Santos, porque vem do brasão dela.
 
-  **Escala prática:** `#7D040E` puro pra detalhe e degradê; `#2a0508` como fundo profundo; `rgba(125,4,14,.2–.6)` pras brasas radiais.
+  **Hierarquia (calibrada com o Marc em 15/07/2026):** o **escuro domina**; dourado e vinho entram como **detalhe**, nunca como ambiente. Primeira tentativa pesou a mão no vinho e ficou vermelha demais — a identidade da Santos é escura antes de tudo, e as outras duas cores são o que brilha *dentro* do escuro.
+
+  **Escala prática:**
+  - Brasa radial no fundo: `rgba(125,4,14,.05–.11)` — tem que ser quase imperceptível, só profundidade
+  - Halo atrás de foto: `rgba(125,4,14,.20)` no máximo
+  - Fundo profundo de faixa: `#0d0204`
+  - `#7D040E` puro: só em fio, borda e degradê de detalhe
+
+  **Teste rápido:** se num print reduzido você *percebe* o vinho como cor, passou do ponto. Ele deve ser sentido, não visto.
 
 - **Cor proibida:** *(não definido por você — sugestão minha, confirma ou corrige)* qualquer cor fora dessas quatro. Azul, verde e neon quebram a marca. O contraste da casa é dourado sobre preto.
 
