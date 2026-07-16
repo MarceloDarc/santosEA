@@ -11,10 +11,14 @@
 <style>
   :root{
     --preto:#000;
-    --preto-2:#0a0a0a;
+    --preto-2:#08080a;
     --preto-3:#131313;
     --dourado:#BC9023;
-    --dourado-claro:#d9ad3f;
+    --dourado-claro:#e3bc55;
+    --dourado-escuro:#8a6519;
+    --vinho:#7D040E;
+    --vinho-fundo:#2a0508;
+    --vinho-brasa:rgba(125,4,14,.55);
     --branco:#fff;
     --cinza:#9a9a9a;
     --display:'Anton',Impact,'Arial Narrow',sans-serif;
@@ -23,13 +27,26 @@
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
   body{
-    background:var(--preto);
+    /* brasa de vinho vindo do brasão — atmosfera, não bloco chapado */
+    background:
+      radial-gradient(1100px 700px at 88% -5%, rgba(125,4,14,.34), transparent 62%),
+      radial-gradient(900px 600px at -10% 38%, rgba(125,4,14,.18), transparent 60%),
+      radial-gradient(1000px 700px at 100% 88%, rgba(125,4,14,.20), transparent 62%),
+      var(--preto);
+    background-attachment:fixed;
     color:var(--branco);
     font-family:var(--corpo);
     font-weight:300;
     line-height:1.6;
     -webkit-font-smoothing:antialiased;
     overflow-x:hidden;
+  }
+  /* degradê dourado na palavra-chave — resgatado do carrossel da própria Santos */
+  .ouro-grad{
+    background:linear-gradient(178deg,var(--dourado-claro) 0%,var(--dourado) 52%,var(--dourado-escuro) 100%);
+    -webkit-background-clip:text;background-clip:text;
+    color:transparent;
+    -webkit-text-fill-color:transparent;
   }
   img{max-width:100%;display:block}
   a{color:inherit;text-decoration:none}
@@ -40,8 +57,11 @@
   h1{font-size:clamp(2.6rem,7vw,5.2rem)}
   h2{font-size:clamp(2rem,4.6vw,3.4rem)}
   h3{font-size:clamp(1.25rem,2vw,1.6rem)}
-  .fio{width:64px;height:2px;background:var(--dourado);margin:1.4rem 0}
-  .fio.center{margin-inline:auto}
+  .fio{
+    width:64px;height:2px;margin:1.4rem 0;
+    background:linear-gradient(90deg,var(--dourado) 0%,var(--vinho) 100%);
+  }
+  .fio.center{margin-inline:auto;background:linear-gradient(90deg,transparent,var(--dourado) 40%,var(--vinho) 100%)}
   .ouro{color:var(--dourado)}
   .sub{font-size:1.05rem;color:var(--cinza);max-width:52ch}
   .rotulo{
@@ -54,10 +74,15 @@
     position:fixed;inset:0 0 auto 0;z-index:50;
     display:flex;align-items:center;justify-content:space-between;
     padding:1rem clamp(1rem,4vw,3rem);
-    background:linear-gradient(to bottom,rgba(0,0,0,.9),transparent);
-    transition:background .3s;
+    background:linear-gradient(to bottom,rgba(0,0,0,.92),transparent);
+    transition:background .3s,backdrop-filter .3s;
   }
-  header.solido{background:rgba(0,0,0,.96);border-bottom:1px solid rgba(188,144,35,.25)}
+  header.solido{
+    background:linear-gradient(90deg,rgba(4,1,2,.97),rgba(42,5,8,.95),rgba(4,1,2,.97));
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid transparent;
+    border-image:linear-gradient(90deg,transparent,var(--dourado),var(--vinho),transparent) 1;
+  }
   header img{height:52px;width:auto}
   nav{display:flex;gap:2rem;align-items:center}
   nav a{
@@ -69,14 +94,26 @@
 
   /* ---------- botões ---------- */
   .btn{
-    display:inline-block;padding:.9rem 2rem;
-    border:1px solid var(--dourado);color:var(--branco);
+    display:inline-block;padding:.9rem 2rem;position:relative;
+    border:1px solid rgba(188,144,35,.55);color:var(--branco);
+    background:linear-gradient(135deg,rgba(125,4,14,.28),rgba(0,0,0,.2));
     font-weight:600;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;
-    transition:background .25s,color .25s;
+    transition:border-color .25s,box-shadow .25s,transform .2s;
   }
-  .btn:hover{background:var(--dourado);color:var(--preto)}
-  .btn.cheio{background:var(--dourado);color:var(--preto)}
-  .btn.cheio:hover{background:var(--dourado-claro)}
+  .btn:hover{
+    border-color:var(--dourado);
+    box-shadow:0 0 0 1px rgba(188,144,35,.3),0 10px 30px rgba(125,4,14,.45);
+    transform:translateY(-1px);
+  }
+  .btn.cheio{
+    background:linear-gradient(140deg,var(--dourado-claro) 0%,var(--dourado) 48%,var(--dourado-escuro) 100%);
+    color:#1a0203;border-color:transparent;font-weight:600;
+    box-shadow:0 6px 24px rgba(125,4,14,.4);
+  }
+  .btn.cheio:hover{
+    box-shadow:0 10px 34px rgba(188,144,35,.35),0 4px 20px rgba(125,4,14,.6);
+    transform:translateY(-1px);
+  }
 
   /* ---------- hero ---------- */
   .hero{
@@ -88,19 +125,29 @@
   .hero-txt .sub{margin-bottom:2rem}
   .hero-cta{display:flex;gap:1rem;flex-wrap:wrap}
   .hero-img{position:relative;justify-self:end;width:100%;max-width:440px}
+  .hero-img::before{
+    /* brasa por trás da foto — dá profundidade em vez de recorte chapado */
+    content:'';position:absolute;inset:-14% -8%;z-index:0;
+    background:radial-gradient(closest-side,var(--vinho-brasa),transparent 72%);
+    filter:blur(28px);pointer-events:none;
+  }
   .hero-img img{
+    position:relative;z-index:1;
     width:100%;aspect-ratio:9/16;object-fit:cover;
-    border:1px solid rgba(188,144,35,.3);
+    border:1px solid rgba(188,144,35,.32);
+    box-shadow:0 30px 70px rgba(0,0,0,.75),0 0 60px rgba(125,4,14,.28);
   }
   .hero-img::after{
-    content:'';position:absolute;inset:0;
-    background:linear-gradient(to top,rgba(0,0,0,.55),transparent 45%);
+    content:'';position:absolute;inset:0;z-index:2;
+    background:linear-gradient(to top,rgba(26,2,3,.75),rgba(125,4,14,.10) 38%,transparent 60%);
     pointer-events:none;
   }
   .selo{
-    position:absolute;left:-18px;bottom:26px;z-index:2;
-    background:var(--preto);border-left:3px solid var(--dourado);
+    position:absolute;left:-18px;bottom:26px;z-index:3;
+    background:linear-gradient(135deg,var(--vinho-fundo),#050102);
+    border-left:3px solid var(--dourado);
     padding:.75rem 1.25rem;
+    box-shadow:0 14px 40px rgba(0,0,0,.7);
   }
   .selo b{font-family:var(--display);font-size:1.5rem;display:block;line-height:1}
   .selo small{font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--cinza)}
@@ -112,15 +159,29 @@
 
   /* ---------- prova ---------- */
   .prova{
-    border-block:1px solid rgba(188,144,35,.25);
-    background:var(--preto-2);
+    position:relative;
+    background:
+      radial-gradient(120% 180% at 50% 50%, rgba(125,4,14,.55), rgba(10,2,3,.9) 70%),
+      linear-gradient(90deg,#050102,var(--vinho-fundo) 50%,#050102);
+    border-block:1px solid rgba(188,144,35,.28);
+    overflow:hidden;
   }
+  .prova::before,.prova::after{
+    content:'';position:absolute;left:0;right:0;height:1px;
+    background:linear-gradient(90deg,transparent,var(--dourado),transparent);
+    opacity:.5;
+  }
+  .prova::before{top:0}
+  .prova::after{bottom:0}
   .prova-grid{display:grid;grid-template-columns:repeat(3,1fr);text-align:center}
   .prova-item{padding:2.6rem 1rem}
-  .prova-item+.prova-item{border-left:1px solid rgba(188,144,35,.18)}
+  .prova-item+.prova-item{border-left:1px solid rgba(188,144,35,.2)}
   .prova-item b{
     font-family:var(--display);font-size:clamp(2.2rem,4.4vw,3.4rem);
-    color:var(--dourado);display:block;line-height:1;
+    display:block;line-height:1;
+    background:linear-gradient(178deg,var(--dourado-claro),var(--dourado) 55%,var(--dourado-escuro));
+    -webkit-background-clip:text;background-clip:text;
+    color:transparent;-webkit-text-fill-color:transparent;
   }
   .prova-item span{font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;color:var(--cinza)}
   @media(max-width:760px){
@@ -137,12 +198,29 @@
   /* gap+background pintava as células vazias de dourado — borda por card resolve */
   .servicos{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1rem}
   .servico{
-    background:var(--preto-2);padding:2.4rem 2rem;
-    border:1px solid rgba(188,144,35,.22);
-    transition:background .25s,border-color .25s;
+    position:relative;overflow:hidden;
+    background:linear-gradient(158deg,rgba(125,4,14,.16) 0%,rgba(10,10,12,.92) 46%,rgba(5,5,6,.96) 100%);
+    padding:2.4rem 2rem;
+    border:1px solid rgba(188,144,35,.2);
+    transition:border-color .3s,transform .3s,box-shadow .3s;
   }
-  .servico:hover{background:var(--preto-3);border-color:rgba(188,144,35,.55)}
-  .servico .num{font-family:var(--display);color:rgba(188,144,35,.35);font-size:1.6rem;line-height:1}
+  .servico::before{
+    content:'';position:absolute;left:0;top:0;bottom:0;width:2px;
+    background:linear-gradient(180deg,var(--dourado),var(--vinho));
+    opacity:0;transition:opacity .3s;
+  }
+  .servico:hover{
+    border-color:rgba(188,144,35,.5);
+    transform:translateY(-3px);
+    box-shadow:0 18px 44px rgba(0,0,0,.6),0 0 30px rgba(125,4,14,.28);
+  }
+  .servico:hover::before{opacity:1}
+  .servico .num{
+    font-family:var(--display);font-size:1.6rem;line-height:1;
+    background:linear-gradient(180deg,rgba(188,144,35,.75),rgba(125,4,14,.75));
+    -webkit-background-clip:text;background-clip:text;
+    color:transparent;-webkit-text-fill-color:transparent;
+  }
   .servico h3{margin:.8rem 0 .6rem}
   .servico p{font-size:.95rem;color:var(--cinza)}
   .servico .tag{
@@ -153,33 +231,63 @@
 
   /* ---------- destaque ---------- */
   .destaque{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
-  .destaque img{aspect-ratio:9/16;object-fit:cover;max-height:600px;border:1px solid rgba(188,144,35,.3)}
+  .destaque .moldura{position:relative}
+  .destaque .moldura::before{
+    content:'';position:absolute;inset:-12%;
+    background:radial-gradient(closest-side,rgba(125,4,14,.5),transparent 74%);
+    filter:blur(30px);pointer-events:none;
+  }
+  .destaque .moldura::after{
+    content:'';position:absolute;inset:0;pointer-events:none;
+    background:linear-gradient(to top,rgba(26,2,3,.6),transparent 50%);
+  }
+  .destaque img{
+    position:relative;
+    aspect-ratio:9/16;object-fit:cover;max-height:600px;width:100%;
+    border:1px solid rgba(188,144,35,.3);
+    box-shadow:0 26px 60px rgba(0,0,0,.7),0 0 50px rgba(125,4,14,.22);
+  }
   @media(max-width:860px){.destaque{grid-template-columns:1fr}}
   .lista{list-style:none;margin-top:1.6rem}
   .lista li{
     padding:.75rem 0 .75rem 1.6rem;position:relative;
     border-bottom:1px solid rgba(255,255,255,.08);font-size:.98rem;color:#cfcfcf;
   }
-  .lista li::before{content:'';position:absolute;left:0;top:1.35rem;width:7px;height:7px;background:var(--dourado)}
+  .lista li::before{
+    content:'';position:absolute;left:0;top:1.35rem;width:7px;height:7px;
+    background:linear-gradient(135deg,var(--dourado),var(--vinho));
+  }
 
   /* ---------- galeria ---------- */
   .galeria{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
   .galeria figure{position:relative;overflow:hidden}
   .galeria img{aspect-ratio:9/16;object-fit:cover;transition:transform .5s;filter:grayscale(.2)}
   .galeria figure:hover img{transform:scale(1.05);filter:grayscale(0)}
+  .galeria figure{border:1px solid rgba(188,144,35,.18)}
   .galeria figcaption{
     position:absolute;left:0;bottom:0;right:0;padding:1rem;
-    background:linear-gradient(to top,rgba(0,0,0,.92),transparent);
+    background:linear-gradient(to top,rgba(26,2,3,.95),rgba(125,4,14,.25) 55%,transparent);
     font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;
   }
 
   /* ---------- fechamento ---------- */
-  .fechar{background:var(--preto-2);border-top:1px solid rgba(188,144,35,.25);text-align:center}
+  .fechar{
+    position:relative;text-align:center;
+    background:
+      radial-gradient(140% 130% at 50% 0%, rgba(125,4,14,.6), transparent 62%),
+      linear-gradient(180deg,#0b0203,#050102);
+    border-top:1px solid rgba(188,144,35,.3);
+  }
   .fechar h2{margin-bottom:1.2rem}
   .fechar .sub{margin:0 auto 2rem}
 
   /* ---------- rodapé ---------- */
-  footer{background:var(--preto);border-top:1px solid rgba(255,255,255,.08);padding:3.5rem 0 2rem}
+  footer{
+    background:linear-gradient(180deg,#050102,#000);
+    border-top:1px solid transparent;
+    border-image:linear-gradient(90deg,transparent,var(--vinho),var(--dourado),var(--vinho),transparent) 1;
+    padding:3.5rem 0 2rem;
+  }
   .rodape{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2.5rem}
   .rodape img{height:76px;margin-bottom:1rem}
   .rodape h4{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--dourado);margin-bottom:1rem;font-weight:600}
@@ -198,11 +306,12 @@
 
   .zap{
     position:fixed;right:1.25rem;bottom:1.25rem;z-index:60;
-    background:var(--dourado);color:var(--preto);
+    background:linear-gradient(140deg,var(--dourado-claro),var(--dourado) 50%,var(--dourado-escuro));
+    color:#1a0203;
     padding:.9rem 1.4rem;font-weight:600;font-size:.78rem;
     letter-spacing:.12em;text-transform:uppercase;
-    box-shadow:0 8px 30px rgba(0,0,0,.6);
-    transition:transform .2s;
+    box-shadow:0 8px 30px rgba(0,0,0,.6),0 0 24px rgba(125,4,14,.5);
+    transition:transform .2s,box-shadow .2s;
   }
   .zap:hover{transform:translateY(-2px)}
 
@@ -229,7 +338,7 @@
     <div class="hero-txt">
       <p class="rotulo">Limeira / SP &middot; há mais de 10 anos</p>
       <div class="fio"></div>
-      <h1><span>Dez anos</span><span>cuidando das</span><span class="ouro">naves de Limeira.</span></h1>
+      <h1><span>Dez anos</span><span>cuidando das</span><span class="ouro-grad">naves de Limeira.</span></h1>
       <div class="fio"></div>
       <p class="sub">
         PPF, vitrificação e polimento técnico. Mais de mil carros passaram
@@ -243,7 +352,7 @@
     <div class="hero-img">
       <img src="assets/hero-mercedes.jpg" alt="Capô preto espelhado após vitrificação, refletindo o letreiro Santos da oficina">
       <div class="selo">
-        <b class="ouro">4,8</b>
+        <b class="ouro-grad">4,8</b>
         <small>78 avaliações no Google</small>
       </div>
     </div>
@@ -314,7 +423,7 @@
       <div>
         <p class="rotulo">Proteção de pintura</p>
         <div class="fio"></div>
-        <h2>A pedra bate<br>no <span class="ouro">filme</span>.</h2>
+        <h2>A pedra bate<br>no <span class="ouro-grad">filme</span>.</h2>
         <p class="sub">
           O PPF é uma película transparente aplicada sobre a pintura original.
           Ela leva o impacto que iria pro capô: pedrisco de estrada, inseto,
@@ -338,7 +447,7 @@
       <div>
         <p class="rotulo">Coating cerâmico</p>
         <div class="fio"></div>
-        <h2>Kisho <span class="ouro">SI-701</span>.</h2>
+        <h2>Kisho <span class="ouro-grad">SI-701</span>.</h2>
         <p class="sub">
           Coating cerâmico japonês. Não é cera, não sai na primeira lavagem.
           Sela a pintura, realça a cor e deixa o reflexo que você vê na foto
@@ -360,7 +469,7 @@
       <div>
         <p class="rotulo">A casa</p>
         <div class="fio"></div>
-        <h2>Uma das primeiras<br>de <span class="ouro">Limeira</span>.</h2>
+        <h2>Uma das primeiras<br>de <span class="ouro-grad">Limeira</span>.</h2>
         <p class="sub">
           Mais de dez anos em Limeira e mais de mil carros. Não é a casa
           que abriu ano passado surfando a onda do PPF — é onde a cidade
@@ -411,7 +520,7 @@
   <div class="wrap">
     <p class="rotulo">Bora?</p>
     <div class="fio center"></div>
-    <h2>Traz a <span class="ouro">nave</span>.</h2>
+    <h2>Traz a <span class="ouro-grad">nave</span>.</h2>
     <p class="sub">
       Manda uma foto do carro no WhatsApp e diz o que você quer fazer.
       A gente avalia e te retorna.
