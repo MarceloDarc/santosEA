@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Santos Estética Automotiva — PPF, Vitrificação e Polimento em Limeira/SP</title>
+<meta name="description" content="Estética automotiva em Limeira/SP há mais de 10 anos. PPF, vitrificação com coating Kisho SI-701 e polimento técnico. Mais de mil carros cuidados. 4,8 no Google, 78 avaliações.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --preto:#000;
+    --preto-2:#0a0a0a;
+    --preto-3:#131313;
+    --dourado:#BC9023;
+    --dourado-claro:#d9ad3f;
+    --branco:#fff;
+    --cinza:#9a9a9a;
+    --display:'Anton',Impact,'Arial Narrow',sans-serif;
+    --corpo:'Barlow',system-ui,-apple-system,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--preto);
+    color:var(--branco);
+    font-family:var(--corpo);
+    font-weight:300;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  .wrap{width:min(1200px,92vw);margin-inline:auto}
+
+  /* ---------- tipografia ---------- */
+  h1,h2,h3{font-family:var(--display);font-weight:400;text-transform:uppercase;line-height:.95;letter-spacing:.01em}
+  h1{font-size:clamp(2.6rem,7vw,5.2rem)}
+  h2{font-size:clamp(2rem,4.6vw,3.4rem)}
+  h3{font-size:clamp(1.25rem,2vw,1.6rem)}
+  .fio{width:64px;height:2px;background:var(--dourado);margin:1.4rem 0}
+  .fio.center{margin-inline:auto}
+  .ouro{color:var(--dourado)}
+  .sub{font-size:1.05rem;color:var(--cinza);max-width:52ch}
+  .rotulo{
+    font-family:var(--corpo);font-weight:600;font-size:.72rem;
+    letter-spacing:.22em;text-transform:uppercase;color:var(--dourado);
+  }
+
+  /* ---------- topo ---------- */
+  header{
+    position:fixed;inset:0 0 auto 0;z-index:50;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:1rem clamp(1rem,4vw,3rem);
+    background:linear-gradient(to bottom,rgba(0,0,0,.9),transparent);
+    transition:background .3s;
+  }
+  header.solido{background:rgba(0,0,0,.96);border-bottom:1px solid rgba(188,144,35,.25)}
+  header img{height:52px;width:auto}
+  nav{display:flex;gap:2rem;align-items:center}
+  nav a{
+    font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--branco);opacity:.75;transition:opacity .2s,color .2s;
+  }
+  nav a:hover{opacity:1;color:var(--dourado)}
+  @media(max-width:860px){nav{display:none}}
+
+  /* ---------- botões ---------- */
+  .btn{
+    display:inline-block;padding:.9rem 2rem;
+    border:1px solid var(--dourado);color:var(--branco);
+    font-weight:600;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;
+    transition:background .25s,color .25s;
+  }
+  .btn:hover{background:var(--dourado);color:var(--preto)}
+  .btn.cheio{background:var(--dourado);color:var(--preto)}
+  .btn.cheio:hover{background:var(--dourado-claro)}
+
+  /* ---------- hero ---------- */
+  .hero{
+    min-height:100svh;display:grid;align-items:center;
+    grid-template-columns:1.1fr .9fr;gap:clamp(2rem,5vw,5rem);
+    padding:7rem 0 4rem;
+  }
+  .hero-txt h1 span{display:block}
+  .hero-txt .sub{margin-bottom:2rem}
+  .hero-cta{display:flex;gap:1rem;flex-wrap:wrap}
+  .hero-img{position:relative;justify-self:end;width:100%;max-width:440px}
+  .hero-img img{
+    width:100%;aspect-ratio:9/16;object-fit:cover;
+    border:1px solid rgba(188,144,35,.3);
+  }
+  .hero-img::after{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(to top,rgba(0,0,0,.55),transparent 45%);
+    pointer-events:none;
+  }
+  .selo{
+    position:absolute;left:-18px;bottom:26px;z-index:2;
+    background:var(--preto);border-left:3px solid var(--dourado);
+    padding:.75rem 1.25rem;
+  }
+  .selo b{font-family:var(--display);font-size:1.5rem;display:block;line-height:1}
+  .selo small{font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--cinza)}
+  @media(max-width:900px){
+    .hero{grid-template-columns:1fr;padding-top:6rem;text-align:left}
+    .hero-img{justify-self:start;max-width:340px}
+    .selo{left:auto;right:-10px}
+  }
+
+  /* ---------- prova ---------- */
+  .prova{
+    border-block:1px solid rgba(188,144,35,.25);
+    background:var(--preto-2);
+  }
+  .prova-grid{display:grid;grid-template-columns:repeat(3,1fr);text-align:center}
+  .prova-item{padding:2.6rem 1rem}
+  .prova-item+.prova-item{border-left:1px solid rgba(188,144,35,.18)}
+  .prova-item b{
+    font-family:var(--display);font-size:clamp(2.2rem,4.4vw,3.4rem);
+    color:var(--dourado);display:block;line-height:1;
+  }
+  .prova-item span{font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;color:var(--cinza)}
+  @media(max-width:760px){
+    .prova-grid{grid-template-columns:1fr}
+    .prova-item+.prova-item{border-left:0;border-top:1px solid rgba(188,144,35,.18)}
+    .prova-item{padding:1.8rem 1rem}
+  }
+
+  /* ---------- seções ---------- */
+  section{padding:clamp(4rem,9vw,7.5rem) 0}
+  .cabeca{margin-bottom:3.5rem;max-width:60ch}
+
+  /* ---------- serviços ---------- */
+  /* gap+background pintava as células vazias de dourado — borda por card resolve */
+  .servicos{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1rem}
+  .servico{
+    background:var(--preto-2);padding:2.4rem 2rem;
+    border:1px solid rgba(188,144,35,.22);
+    transition:background .25s,border-color .25s;
+  }
+  .servico:hover{background:var(--preto-3);border-color:rgba(188,144,35,.55)}
+  .servico .num{font-family:var(--display);color:rgba(188,144,35,.35);font-size:1.6rem;line-height:1}
+  .servico h3{margin:.8rem 0 .6rem}
+  .servico p{font-size:.95rem;color:var(--cinza)}
+  .servico .tag{
+    display:inline-block;margin-top:1rem;font-size:.66rem;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--dourado);border:1px solid rgba(188,144,35,.4);
+    padding:.28rem .7rem;
+  }
+
+  /* ---------- destaque ---------- */
+  .destaque{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+  .destaque img{aspect-ratio:9/16;object-fit:cover;max-height:600px;border:1px solid rgba(188,144,35,.3)}
+  @media(max-width:860px){.destaque{grid-template-columns:1fr}}
+  .lista{list-style:none;margin-top:1.6rem}
+  .lista li{
+    padding:.75rem 0 .75rem 1.6rem;position:relative;
+    border-bottom:1px solid rgba(255,255,255,.08);font-size:.98rem;color:#cfcfcf;
+  }
+  .lista li::before{content:'';position:absolute;left:0;top:1.35rem;width:7px;height:7px;background:var(--dourado)}
+
+  /* ---------- galeria ---------- */
+  .galeria{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+  .galeria figure{position:relative;overflow:hidden}
+  .galeria img{aspect-ratio:9/16;object-fit:cover;transition:transform .5s;filter:grayscale(.2)}
+  .galeria figure:hover img{transform:scale(1.05);filter:grayscale(0)}
+  .galeria figcaption{
+    position:absolute;left:0;bottom:0;right:0;padding:1rem;
+    background:linear-gradient(to top,rgba(0,0,0,.92),transparent);
+    font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;
+  }
+
+  /* ---------- fechamento ---------- */
+  .fechar{background:var(--preto-2);border-top:1px solid rgba(188,144,35,.25);text-align:center}
+  .fechar h2{margin-bottom:1.2rem}
+  .fechar .sub{margin:0 auto 2rem}
+
+  /* ---------- rodapé ---------- */
+  footer{background:var(--preto);border-top:1px solid rgba(255,255,255,.08);padding:3.5rem 0 2rem}
+  .rodape{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2.5rem}
+  .rodape img{height:76px;margin-bottom:1rem}
+  .rodape h4{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--dourado);margin-bottom:1rem;font-weight:600}
+  .rodape p,.rodape a{font-size:.92rem;color:var(--cinza);display:block;margin-bottom:.5rem}
+  .rodape a:hover{color:var(--branco)}
+  .creditos{
+    margin-top:3rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.08);
+    font-size:.78rem;color:#666;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+  }
+  @media(max-width:760px){.rodape{grid-template-columns:1fr}}
+
+  .pendente{
+    background:rgba(188,144,35,.1);border:1px dashed var(--dourado);
+    color:var(--dourado-claro);padding:.15rem .5rem;font-size:.85em;font-weight:500;
+  }
+
+  .zap{
+    position:fixed;right:1.25rem;bottom:1.25rem;z-index:60;
+    background:var(--dourado);color:var(--preto);
+    padding:.9rem 1.4rem;font-weight:600;font-size:.78rem;
+    letter-spacing:.12em;text-transform:uppercase;
+    box-shadow:0 8px 30px rgba(0,0,0,.6);
+    transition:transform .2s;
+  }
+  .zap:hover{transform:translateY(-2px)}
+
+  @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<header id="topo">
+  <a href="#topo"><img src="assets/logo.svg" alt="Santos Estética Automotiva"></a>
+  <nav>
+    <a href="#servicos">Serviços</a>
+    <a href="#ppf">PPF</a>
+    <a href="#vitrificacao">Vitrificação</a>
+    <a href="#casa">A casa</a>
+    <a href="#contato" class="ouro">Contato</a>
+  </nav>
+</header>
+
+<main class="wrap">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="hero-txt">
+      <p class="rotulo">Limeira / SP &middot; há mais de 10 anos</p>
+      <div class="fio"></div>
+      <h1><span>Dez anos</span><span>cuidando das</span><span class="ouro">naves de Limeira.</span></h1>
+      <div class="fio"></div>
+      <p class="sub">
+        PPF, vitrificação e polimento técnico. Mais de mil carros passaram
+        por aqui — do Tiguan à Porsche. O padrão é o mesmo nos dois.
+      </p>
+      <div class="hero-cta">
+        <a href="#contato" class="btn cheio">Chamar no WhatsApp</a>
+        <a href="#servicos" class="btn">Ver serviços</a>
+      </div>
+    </div>
+    <div class="hero-img">
+      <img src="assets/hero-mercedes.jpg" alt="Capô preto espelhado após vitrificação, refletindo o letreiro Santos da oficina">
+      <div class="selo">
+        <b class="ouro">4,8</b>
+        <small>78 avaliações no Google</small>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============ PROVA ============ -->
+<div class="prova">
+  <div class="wrap">
+    <div class="prova-grid">
+      <div class="prova-item"><b>10+</b><span>Anos em Limeira</span></div>
+      <div class="prova-item"><b>1.000+</b><span>Carros cuidados</span></div>
+      <div class="prova-item"><b>4,8</b><span>No Google · 78 avaliações</span></div>
+    </div>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <!-- ============ SERVIÇOS ============ -->
+  <section id="servicos">
+    <div class="cabeca">
+      <p class="rotulo">O que fazemos</p>
+      <div class="fio"></div>
+      <h2>Serviços</h2>
+      <p class="sub">Da lavagem que traz você aqui ao PPF que fica anos no carro.</p>
+    </div>
+
+    <div class="servicos">
+      <article class="servico">
+        <div class="num">01</div>
+        <h3>Película PPF</h3>
+        <p>Filme transparente por cima da pintura de fábrica. A pedra de estrada e o inseto batem no filme — não no capô. Frontal ou carro completo.</p>
+        <span class="tag">Frontal · Completo</span>
+      </article>
+      <article class="servico">
+        <div class="num">02</div>
+        <h3>Vitrificação</h3>
+        <p>Coating cerâmico Kisho SI-701. Realça a cor da pintura e traz o efeito espelhado — aquele que devolve o reflexo inteiro.</p>
+        <span class="tag">Kisho SI-701</span>
+      </article>
+      <article class="servico">
+        <div class="num">03</div>
+        <h3>Polimento técnico</h3>
+        <p>Correção da pintura antes de qualquer proteção. É o passo que ninguém vê e que decide o resultado de todos os outros.</p>
+      </article>
+      <article class="servico">
+        <div class="num">04</div>
+        <h3>Lavagem</h3>
+        <p>Da básica à premium. É por onde a maioria conhece a casa — e por onde dá pra ver o cuidado antes de fechar qualquer coisa maior.</p>
+      </article>
+      <article class="servico">
+        <div class="num">05</div>
+        <h3>Bancos</h3>
+        <p>Hidratação e proteção de couro. O interior envelhece junto com a pintura, e quase sempre é esquecido.</p>
+      </article>
+      <article class="servico">
+        <div class="num">06</div>
+        <h3>Reparos e repintura</h3>
+        <p>Profissional dedicado só pra isso na equipe. O que não dá pra corrigir no polimento, resolve aqui.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ PPF ============ -->
+  <section id="ppf">
+    <div class="destaque">
+      <div>
+        <p class="rotulo">Proteção de pintura</p>
+        <div class="fio"></div>
+        <h2>A pedra bate<br>no <span class="ouro">filme</span>.</h2>
+        <p class="sub">
+          O PPF é uma película transparente aplicada sobre a pintura original.
+          Ela leva o impacto que iria pro capô: pedrisco de estrada, inseto,
+          risco de lavagem malfeita.
+        </p>
+        <ul class="lista">
+          <li>Frontal — capô, para-choque e a parte que come estrada</li>
+          <li>Completo — o carro inteiro sob filme</li>
+          <li>Manutenção de PPF já aplicado</li>
+          <li>Película: <span class="pendente">marca a confirmar</span></li>
+        </ul>
+      </div>
+      <img src="assets/ppf.jpg" alt="Aplicação de película PPF sendo assentada sobre a frente de um carro prata">
+    </div>
+  </section>
+
+  <!-- ============ VITRIFICAÇÃO ============ -->
+  <section id="vitrificacao">
+    <div class="destaque">
+      <img src="assets/vitrificacao.jpg" alt="Aplicação de coating com aplicador de microfibra sobre capô escuro, com o letreiro Santos refletido no vidro ao fundo">
+      <div>
+        <p class="rotulo">Coating cerâmico</p>
+        <div class="fio"></div>
+        <h2>Kisho <span class="ouro">SI-701</span>.</h2>
+        <p class="sub">
+          Coating cerâmico japonês. Não é cera, não sai na primeira lavagem.
+          Sela a pintura, realça a cor e deixa o reflexo que você vê na foto
+          aí do lado — sem filtro, sem retoque.
+        </p>
+        <ul class="lista">
+          <li>Realça a cor da pintura</li>
+          <li>Efeito espelhado no acabamento</li>
+          <li>Coating cerâmico japonês — não é cera</li>
+          <li>Duração e manutenção: <span class="pendente">a confirmar</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ A CASA ============ -->
+  <section id="casa">
+    <div class="destaque">
+      <div>
+        <p class="rotulo">A casa</p>
+        <div class="fio"></div>
+        <h2>Uma das primeiras<br>de <span class="ouro">Limeira</span>.</h2>
+        <p class="sub">
+          Mais de dez anos em Limeira e mais de mil carros. Não é a casa
+          que abriu ano passado surfando a onda do PPF — é onde a cidade
+          traz carro desde antes disso virar moda.
+        </p>
+        <ul class="lista">
+          <li>Cinco pessoas na operação</li>
+          <li>Dois dedicados só ao polimento</li>
+          <li>Um profissional só pra reparo e repintura</li>
+          <li>4,8 no Google, com 78 avaliações de gente de Limeira</li>
+        </ul>
+      </div>
+      <img src="assets/oficina.jpg" alt="Equipe da Santos trabalhando na oficina">
+    </div>
+  </section>
+
+  <!-- ============ GALERIA ============ -->
+  <section id="galeria">
+    <div class="cabeca">
+      <p class="rotulo">Trabalho</p>
+      <div class="fio"></div>
+      <h2>Passou por aqui</h2>
+    </div>
+    <div class="galeria">
+      <figure>
+        <img src="assets/hero-mercedes.jpg" alt="Capô preto espelhado refletindo o letreiro da oficina">
+        <figcaption>Mercedes · vitrificação</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/ppf.jpg" alt="Película PPF sendo aplicada">
+        <figcaption>PPF · aplicação</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/vitrificacao.jpg" alt="Aplicação de coating no capô, com o letreiro Santos refletido no vidro">
+        <figcaption>Vitrificação · aplicação</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/oficina.jpg" alt="Profissional da Santos trabalhando na pintura de um carro">
+        <figcaption>A casa · Limeira</figcaption>
+      </figure>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FECHAMENTO ============ -->
+<section class="fechar" id="contato">
+  <div class="wrap">
+    <p class="rotulo">Bora?</p>
+    <div class="fio center"></div>
+    <h2>Traz a <span class="ouro">nave</span>.</h2>
+    <p class="sub">
+      Manda uma foto do carro no WhatsApp e diz o que você quer fazer.
+      A gente avalia e te retorna.
+    </p>
+    <a href="#" class="btn cheio" id="zap-principal">Chamar no WhatsApp</a>
+  </div>
+</section>
+
+<!-- ============ RODAPÉ ============ -->
+<footer>
+  <div class="wrap">
+    <div class="rodape">
+      <div>
+        <img src="assets/logo.svg" alt="Santos Estética Automotiva">
+        <p>Estética automotiva em Limeira/SP<br>há mais de dez anos.</p>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <a href="#" id="zap-rodape">WhatsApp — <span class="pendente">número a confirmar</span></a>
+        <a href="https://instagram.com/santosesteticaautomotiva" target="_blank" rel="noopener">@santosesteticaautomotiva</a>
+        <p><span class="pendente">Endereço a confirmar</span></p>
+      </div>
+      <div>
+        <h4>Serviços</h4>
+        <a href="#ppf">Película PPF</a>
+        <a href="#vitrificacao">Vitrificação</a>
+        <a href="#servicos">Polimento técnico</a>
+        <a href="#servicos">Lavagem</a>
+      </div>
+    </div>
+    <div class="creditos">
+      <span>&copy; 2026 Santos Estética Automotiva · Limeira/SP</span>
+      <span>4,8 no Google · 78 avaliações</span>
+    </div>
+  </div>
+</footer>
+
+<a href="#contato" class="zap">WhatsApp</a>
+
+<script>
+  const h = document.querySelector('header');
+  addEventListener('scroll', () => h.classList.toggle('solido', scrollY > 60), {passive:true});
+</script>
+
+</body>
+</html>
