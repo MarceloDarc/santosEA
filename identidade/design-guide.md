@@ -16,9 +16,11 @@
 
 - **Texto principal:** `#FFFFFF` — branco. É como "SANTOS" aparece na faixa.
 
-- **Fundo alternativo / cards:** preto mais claro / cinza escuro. **Não usar vinho** — ver abaixo.
+- **Vinho `#7D040E`:** **cor estrutural da marca, a par do dourado.** Usar como **atmosfera** — brasa radial no fundo, sombra colorida, degradê — nunca como bloco chapado de cor.
 
-- **Vinho `#7D040E`:** cor **exclusiva do logo**. Corrigido em 15/07/2026 ao analisar as peças reais: o vinho **não aparece em nenhum material de marketing da Santos**. Ele vive só na faixa do brasão. Meu registro anterior ("fundo alternativo / cards") saiu de extrair a cor do arquivo do logo sem olhar a marca em uso — estava errado. Na prática o sistema é **preto + dourado + branco**.
+  > **Histórico dessa linha (importante, pra não errar de novo):** eu registrei primeiro que o vinho era "fundo alternativo/cards", extraindo do arquivo do logo. Depois "corrigi" pra "exclusivo do logo, não entra em peça", ao ver que nenhum material de marketing usava. **Essa segunda versão também estava errada, e pelo motivo mais sutil:** material antigo mostra o que *foi feito*, não o que *pode ser feito*. Eu tinha transformado observação de hábito em regra de marca. O Marc (a agência) decidiu em 15/07/2026 que o vinho entra — e ele está certo: preto + dourado sozinho é o clichê visual de toda estética e barbearia. O vinho é o que individualiza a Santos, porque vem do brasão dela.
+
+  **Escala prática:** `#7D040E` puro pra detalhe e degradê; `#2a0508` como fundo profundo; `rgba(125,4,14,.2–.6)` pras brasas radiais.
 
 - **Cor proibida:** *(não definido por você — sugestão minha, confirma ou corrige)* qualquer cor fora dessas quatro. Azul, verde e neon quebram a marca. O contraste da casa é dourado sobre preto.
 
@@ -86,9 +88,18 @@ O material bruto é **bom** — foto escura, de processo, com mão na massa e re
 ## O que NUNCA fazer
 
 - Fundo claro como padrão — a marca vive no escuro
-- Dourado sobre vinho (contraste ruim, os dois são médios/escuros) — dourado quer preto atrás
+- **Preto + dourado sozinhos.** É o clichê visual do setor inteiro — toda estética, toda barbearia, toda hamburgueria artesanal. Sem o vinho, a marca vira genérica e "amarela demais" (crítica do Marc, 15/07/2026). O vinho é o antídoto.
+- Dourado chapado sobre vinho chapado (contraste ruim, os dois são médios/escuros) — o dourado quer preto atrás. Vinho como brasa **atrás** do preto funciona; vinho como fundo **direto** do dourado, não.
 - Distorcer ou recortar o escudo; ele é selo, usa inteiro
-- Vinho como fundo de página inteira — na marca ele é faixa
+- Vinho chapado em área grande — ele é atmosfera e faixa, não tinta de parede
+
+## Padrão do site (implementado em `site/index.html`, 15/07/2026)
+
+- **Brasa de vinho:** três `radial-gradient` de baixa opacidade no `body`, fixos — canto superior direito, meio-esquerda, base direita. Dão profundidade sem pesar.
+- **Faixa de prova = faixa do brasão.** A barra de números (10+ anos, 1.000+ carros, 4,8) usa fundo vinho com números em dourado — mesma estrutura da faixa vinho do escudo, que carrega "SANTOS" em branco. Não foi planejado; foi reconhecido depois. É o que faz a página parecer da Santos e não de qualquer marca escura.
+- **Degradê dourado na palavra-chave:** `linear-gradient(178deg, #e3bc55, #BC9023 52%, #8a6519)` com `background-clip:text`. Direto do carrossel "BORA **VITRIFICAR**" da própria Santos.
+- **Fio divisor:** degradê dourado → vinho, 64×2px.
+- **Fotos:** brasa vinho desfocada por trás, sombra projetada preta + halo vinho, e overlay subindo em `rgba(26,2,3,…)` — nunca preto puro.
 
 ---
 
