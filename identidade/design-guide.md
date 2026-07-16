@@ -16,7 +16,9 @@
 
 - **Texto principal:** `#FFFFFF` — branco. É como "SANTOS" aparece na faixa.
 
-- **Fundo alternativo / cards:** `#7D040E` — vinho. A faixa superior do escudo (~26% da arte colorida). Usar como bloco de destaque, não como fundo de página inteira — na logo ela é faixa, não campo.
+- **Fundo alternativo / cards:** preto mais claro / cinza escuro. **Não usar vinho** — ver abaixo.
+
+- **Vinho `#7D040E`:** cor **exclusiva do logo**. Corrigido em 15/07/2026 ao analisar as peças reais: o vinho **não aparece em nenhum material de marketing da Santos**. Ele vive só na faixa do brasão. Meu registro anterior ("fundo alternativo / cards") saiu de extrair a cor do arquivo do logo sem olhar a marca em uso — estava errado. Na prática o sistema é **preto + dourado + branco**.
 
 - **Cor proibida:** *(não definido por você — sugestão minha, confirma ou corrige)* qualquer cor fora dessas quatro. Azul, verde e neon quebram a marca. O contraste da casa é dourado sobre preto.
 
@@ -44,6 +46,31 @@
 ## Estilo geral
 
 Escuro, metálico, contraste alto. Dourado sobre preto é o par que carrega a marca. Estética de brasão/escudo — a marca se apresenta como selo de aprovação, não como logotipo corrido. Combina com foto de carro escuro, reflexo, detalhe de superfície.
+
+## Sistema já em uso (observado nas peças reais, 15/07/2026)
+
+A Santos **já tem uma linguagem visual consistente** rodando no Instagram. O site estende ela — não inventa outra. O padrão de toda peça:
+
+- **Fundo:** foto escura do processo, com escurecimento na base pro texto respirar
+- **Título:** condensada bold, caixa alta, branco, alinhado à esquerda, na base da peça
+- **Fio dourado** curto separando título e subtítulo
+- **Subtítulo:** uma linha, sans humanista, peso leve, caixa alta ou frase curta
+- **CTA:** botão retangular vazado, contorno dourado fino, texto branco caixa alta — "AGENDE SUA AVALIAÇÃO"
+- **Formato:** 1080×1350 (retrato de Instagram)
+
+Variação vista no slide de CTA: **degradê dourado aplicado na palavra-chave** do título ("BORA **VITRIFICAR** SEU CARRO?").
+
+**Repertório de título já usado:** "VITRIFICAÇÃO PREMIUM", "APLICAÇÃO DE PELÍCULA PPF", "BRILHO", "BORA VITRIFICAR SEU CARRO?"
+
+**Subtítulos já usados:** "PROTEJA E VALORIZE A SUA NAVE.", "PRESERVE O BRILHO. EVITE MARCAS. VALORIZE O SEU CARRO.", "realça a cor da pintura e traz um efeito espelhado."
+
+> Nota de tom: "PROTEJA E VALORIZE A SUA NAVE" é a melhor linha do conjunto — tem a gíria da casa. Já "PRESERVE O BRILHO. EVITE MARCAS. VALORIZE O SEU CARRO." é a fórmula genérica que `preferencias.md` manda evitar. As duas convivem hoje; a direção acordada é puxar pra primeira.
+
+## Fotografia
+
+O material bruto é **bom** — foto escura, de processo, com mão na massa e reflexo. É o ativo mais forte da marca depois do brasão. Mantém: baixa luz, superfície molhada/espelhada, close de processo, equipe trabalhando (o uniforme tem o brasão bordado).
+
+**Limitação conhecida:** todo o material fotográfico está em 1080×1350 (retrato). Serve pra galeria e card; **não serve pro hero do site**, que pede horizontal. Pro topo, usar vídeo.
 
 ---
 

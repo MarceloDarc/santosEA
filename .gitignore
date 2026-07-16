@@ -24,3 +24,10 @@ node_modules/
 # Drop zone do usuário (só o README vai versionado)
 dados/*
 !dados/README.md
+
+# Material bruto do site — vídeo estoura o limite de 100MB por arquivo do
+# GitHub (o da Mercedes tem 185MB). Fica só local; o que for pro site vai
+# comprimido e otimizado depois.
+site/fotos/videos/
+*.mp4
+*.mov
