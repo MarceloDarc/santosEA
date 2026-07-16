@@ -9,7 +9,19 @@ Retomada digital. O negócio ficou parado no digital e precisa reconquistar posi
 
 ## Gargalo atual
 
-**Retomar o número de clientes vindo do digital.** A operação entrega (equipe de 5, agenda com AMG e Porsche), mas o canal digital parou e a demanda de mensagens caiu.
+**Devolver o reconhecimento do público dele.** Refinado em 15/07/2026, conversando com o Marc (a agência) depois que ele explicou a relação com o cliente.
+
+Não é "conquistar cliente novo" — é **reativar quem já conhece**. A Santos ficou anos longe do digital e sumiu do radar de uma base que já existe. A operação entrega (equipe de 5, agenda com AMG e Porsche); o que parou foi a lembrança.
+
+**O ativo escondido:** por ser uma das primeiras de Limeira, o dono tem **muitos contatos** — conhecidos e uma base de WhatsApp. Gente que já foi atendida nesses 10 anos.
+
+**O que ele quer atrair:** carro esportivo, PPF, vitrificação.
+
+### Consequência estratégica (importante)
+
+Base morna muda a ordem das prioridades. **SEO local serve pra quem não te conhece; ele já é conhecido.** O caminho mais curto e barato é reativar a base que já existe, e o site vira o **destino de credibilidade** dessa reativação — o lugar pra onde o contato morno olha quando lembra dele. Não é primariamente captação de tráfego frio.
+
+E é aqui que as ~900 avaliações que faltam se encaixam: **elas estão no WhatsApp dele**. Não precisa esperar carro novo entrar — é pedir a quem já foi atendido em 10 anos. Enche o Google em semanas, não meses, e aí o "5,0 com 19 avaliações" do Nexum vira piada.
 
 ## Prioridade principal
 
@@ -44,13 +56,19 @@ A lógica de funil, na palavra dele: lavagem e serviço simples **trazem o clien
 - [ ] **Fotos** — decidido usar o Instagram da Santos como banco inicial. **Atrito conhecido:** o Instagram bloqueia acesso automatizado, então o dono precisa baixar e jogar numa pasta local. Ele ficou de separar material em 15/07/2026. Pra teste: 8-10 boas, com o CLA 45 entre elas. @ ainda não informado.
 - [ ] **Número exato de carros** — acordado relevar por ora ("mais de mil" é honesto e defensável). Garimpar antes de publicar de verdade.
 
-### Oportunidade descoberta: pedir avaliação
+### Oportunidade nº 1: reativar a base morna
 
-78 avaliações para 1000+ carros em 10 anos = **8% de conversão**. Ficaram ~900 avaliações na mesa.
+**É o movimento de maior retorno e menor custo que existe hoje — provavelmente maior que o do site.**
 
-É o movimento de maior retorno e menor custo que existe hoje — mais barato que o site e talvez mais eficaz pro gargalo. Pedir avaliação de forma sistemática a cada carro entregue põe a Santos em 200+ em alguns meses, e aí o Nexum (19) não alcança mais nunca.
+78 avaliações para 1000+ carros em 10 anos = **8% de conversão**. Ficaram ~900 na mesa. E a base pra pedir **já está no WhatsApp do dono** — não depende de tráfego novo, de anúncio, nem do site ficar pronto.
 
-**Candidata a skill** quando o `/mapear-rotinas` for retomado.
+Dois movimentos que se reforçam:
+1. **Pedir avaliação à base antiga** — enche o Google rápido e mata o argumento do Nexum.
+2. **Avisar a base que ele voltou** — é literalmente o gargalo ("devolver o reconhecimento") atacado direto na veia.
+
+Roda em paralelo ao site, não depois. O site é o destino; a base é o tráfego.
+
+**Candidatas a skill** quando o `/mapear-rotinas` for retomado.
 
 ## Tom validado na prática (15/07/2026)
 

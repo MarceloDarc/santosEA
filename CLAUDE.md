@@ -122,6 +122,15 @@ Quando o usuário pedir skill nova:
 > Daqui pra baixo: regras específicas do negócio, escritas pelo `/instalar`.
 > Perfil aplicado: **Empresa** (moldado em `templates/perfis/claude-md-empresa.md`).
 
+## ⚠️ Relação usuário ↔ empresa
+
+**O usuário é o Marcelo (Marc), dono de uma agência de marketing. A Santos é CLIENTE dele.**
+
+- Quando eu falo "você", é o Marc — a agência. O "dono" da Santos é outra pessoa.
+- O tom em `preferencias.md` é a voz da **marca Santos**, escrita pela agência em nome do cliente. Não é a voz pessoal do Marc.
+- **Fato sobre a operação — preço, produto, garantia, prazo — o Marc precisa confirmar com o dono antes de virar conteúdo publicado.** Não assumir, não inventar. Na dúvida, marcar como pendente em vez de escrever bonito.
+- **Um workspace por cliente** (decidido em 15/07/2026). Este é da Santos e só dela. Cliente novo = clone novo do MazyOS, contexto isolado. Nunca misturar cliente aqui.
+
 ## O que é esse workspace
 
 A operação digital da Santos Estética Automotiva. O trabalho na oficina acontece na oficina; aqui é onde o negócio aparece pra fora — conteúdo, marca e captação.

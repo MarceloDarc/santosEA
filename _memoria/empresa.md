@@ -2,6 +2,17 @@
 
 > Memória central do negócio. O Claude lê esse arquivo antes de cada resposta.
 
+## ⚠️ Quem é quem (corrigido em 15/07/2026)
+
+**O usuário deste workspace é o Marcelo (Marc) — dono de uma agência de marketing. A Santos Estética Automotiva é CLIENTE dele, não a empresa dele.**
+
+Isso não apareceu no `/instalar` porque ele ainda estava entendendo como o sistema funcionava. Consequências práticas:
+
+- **"Você" nas conversas = Marc, a agência.** O "dono" citado na equipe abaixo é o dono da Santos, outra pessoa.
+- **O tom de voz em `preferencias.md` é o da marca Santos**, não o do Marc. É a voz que a agência escreve *em nome do* cliente.
+- **Decisões sobre o negócio passam pelo cliente.** Fato sobre a operação (preço, produto, garantia) o Marc precisa confirmar com o dono antes de virar conteúdo — não assumir.
+- Este workspace é dedicado à Santos. Se a agência trouxer outros clientes, a estrutura precisa ser repensada (perfil Agência, pasta por cliente).
+
 **Nome:** Santos Estética Automotiva
 **Negócio:** Estética automotiva
 **O que faz:** Serviços de estética automotiva — da lavagem básica à premium, vitrificação completa, aplicação de película PPF, hidratação e proteção de bancos, polimento técnico.
@@ -15,7 +26,7 @@
 - 2 — polimento
 - 1 — lavagem
 - 1 — reparos e repinturas
-- 1 — o dono (Marc), tocando o geral
+- 1 — o dono, tocando o geral *(o dono da Santos, não o usuário deste workspace — ver abaixo)*
 **Ferramentas:**
 **Principais entregas:** PPF (frontal e completo), vitrificação, polimento técnico, lavagem (básica → premium), hidratação e proteção de bancos, reparos e repintura
 **Instagram:** [@santosesteticaautomotiva](https://instagram.com/santosesteticaautomotiva)
@@ -28,9 +39,19 @@ Usar o nome do produto na comunicação sempre que couber: "Kisho SI-701" é ver
 
 **A confirmar:** que película de PPF é usada? Mesma lógica — a marca do filme é argumento de venda.
 
-## Serviço a confirmar: jet ski
+## Jet ski e caminhão — prova, não oferta
 
-Dois vídeos do material se chamam `JETSKI - FINAL.mp4` e `SANTOS EA - JETSKI.mp4`. A Santos aparentemente atende **embarcação**, o que não foi mencionado no /instalar e pode ser uma frente inteira fora do radar. **Perguntar antes de usar.**
+A Santos atende **jet ski e até caminhão pra empresas**. Mas, nas palavras do Marc: *"não é algo padrão, certo de que vai aparecer"*. É oportunista, não previsível.
+
+**Decisão (15/07/2026):** não vira seção nem pilar do site — construir oferta em cima de serviço imprevisível é prometer o que a operação não sustenta. Serve como **prova de alcance**: mostra que Limeira leva de tudo pra ele, reforçando o "é conhecido". Cabe na galeria ou no "sobre", nunca no menu de serviços.
+
+**O foco declarado é outro:** carro esportivo, PPF, vitrificação.
+
+## Película PPF — marca desconhecida
+
+O Marc não sabe qual filme a Santos usa. Só que *"ele só trampa com marcas boas, sem exceção"*.
+
+**Isso não serve pra comunicação** — "marcas boas" é exatamente a frase vaga que `preferencias.md` manda evitar, e o concorrente diz igual. **Perguntar ao dono qual é o filme** (XPEL, SunTek, 3M, Llumar…). Nome de marca é verificável e vende; "marcas boas" não é nada.
 
 ## Perfil de cliente
 
