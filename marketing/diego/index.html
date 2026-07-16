@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Santos × Nexum — o que tá acontecendo em Limeira</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --dourado:#BC9023; --dourado-claro:#e3bc55; --dourado-escuro:#8a6519;
+    --vinho:#7D040E; --branco:#fff; --cinza:#8e8e8e;
+    --display:'Anton',Impact,sans-serif; --corpo:'Barlow',system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    overflow-x:hidden;
+    background:
+      radial-gradient(900px 600px at 80% 0%, rgba(125,4,14,.13), transparent 62%),
+      radial-gradient(800px 600px at 10% 100%, rgba(125,4,14,.08), transparent 64%),
+      #000;
+    color:var(--branco);font-family:var(--corpo);font-weight:300;
+    -webkit-font-smoothing:antialiased;line-height:1.5;
+  }
+  .tela{
+    min-height:100svh;display:flex;flex-direction:column;justify-content:center;
+    padding:3.5rem 1.6rem;max-width:640px;margin-inline:auto;
+    border-bottom:1px solid rgba(188,144,35,.13);
+  }
+  h1,h2,.num{font-family:var(--display);font-weight:400;text-transform:uppercase;line-height:1.04}
+  h1{font-size:clamp(2.4rem,9vw,4rem)}
+  h2{font-size:clamp(1.7rem,6vw,2.6rem)}
+  .rotulo{font-weight:600;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--dourado);margin-bottom:1rem}
+  .fio{width:52px;height:2px;background:linear-gradient(90deg,var(--dourado),var(--vinho));margin:1.2rem 0}
+  p{font-size:1.05rem;color:#c4c4c4;max-width:min(46ch,100%)}
+  .grande{font-size:1.35rem;color:var(--branco);font-weight:400}
+  .ouro{
+    background:linear-gradient(178deg,var(--dourado-claro),var(--dourado) 55%,var(--dourado-escuro));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .cinza-morto{color:#4a4a4a}
+
+  /* placar */
+  .placar{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:1rem;margin:2.5rem 0}
+  .lado{text-align:center}
+  .lado .quem{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;margin-bottom:.6rem;font-weight:600}
+  .lado .num{font-size:clamp(3.4rem,16vw,6rem);line-height:1;display:block}
+  .lado .oq{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cinza);margin-top:.5rem}
+  .versus{font-family:var(--display);font-size:1rem;color:#3a3a3a}
+  .santos .quem{color:var(--dourado)}
+  .nexum .quem{color:#666}
+  .nexum .num{color:#3d3d3d}
+
+  /* linhas de comparação */
+  .linha{
+    display:grid;grid-template-columns:1fr auto 1fr;gap:.8rem;align-items:center;
+    padding:1rem 0;border-bottom:1px solid rgba(255,255,255,.07);
+  }
+  .linha .e{text-align:right;font-weight:600;font-size:1.05rem}
+  .linha .d{text-align:left;font-size:1.05rem;color:#5a5a5a}
+  .linha .meio{font-size:.6rem;letter-spacing:.16em;color:#3d3d3d;text-transform:uppercase;white-space:nowrap}
+  .linha.perde .e{color:#5a5a5a;font-weight:300}
+  .linha.perde .d{color:var(--branco);font-weight:600}
+  .ganha{color:var(--dourado)}
+
+  .soco{
+    font-family:var(--display);font-size:clamp(1.9rem,7vw,3rem);
+    text-transform:uppercase;line-height:1.12;margin:1.5rem 0;
+  }
+  .caixa{
+    border:1px solid rgba(188,144,35,.3);
+    background:linear-gradient(150deg,rgba(125,4,14,.08),rgba(8,8,10,.9));
+    padding:1.5rem;margin-top:1.6rem;
+  }
+  .pergunta{margin:2rem 0}
+  .pergunta .n{font-family:var(--display);color:var(--vinho);font-size:2rem;line-height:1}
+  .pergunta .q{font-size:1.25rem;color:var(--branco);font-weight:400;margin-top:.3rem}
+  .pergunta .p{font-size:.9rem;color:var(--cinza);margin-top:.4rem}
+  .opts{display:flex;gap:.6rem;margin-top:.9rem;flex-wrap:wrap}
+  .opt{
+    border:1px solid rgba(188,144,35,.35);padding:.55rem 1.1rem;
+    font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:#d8d8d8;
+  }
+  .logo{height:70px;margin-bottom:2rem}
+  .rodape{text-align:center;padding:3rem 1.5rem;color:#555;font-size:.82rem}
+  @media(prefers-reduced-motion:no-preference){
+    .tela>*{animation:sobe .7s ease-out both}
+    @keyframes sobe{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+  }
+</style>
+</head>
+<body>
+
+<!-- 1 — o soco -->
+<section class="tela">
+  <img src="logo.svg" alt="Santos" class="logo">
+  <p class="rotulo">Limeira · hoje</p>
+  <h1>Quem procura<br>estética em Limeira<br><span class="ouro">acha o Nexum.</span></h1>
+  <div class="fio"></div>
+  <p class="grande">Não porque eles são melhores.<br>Porque eles <b>aparecem</b>.</p>
+</section>
+
+<!-- 2 — o placar -->
+<section class="tela">
+  <p class="rotulo">Avaliações no Google</p>
+  <div class="placar">
+    <div class="lado santos">
+      <div class="quem">Santos</div>
+      <span class="num ouro">78</span>
+      <div class="oq">4,8 estrelas</div>
+    </div>
+    <div class="versus">×</div>
+    <div class="lado nexum">
+      <div class="quem">Nexum</div>
+      <span class="num">19</span>
+      <div class="oq">5,0 estrelas</div>
+    </div>
+  </div>
+  <p>O 5,0 deles é sustentado por <b>19 pessoas</b>. O 4,8 de vocês, por <b>78</b>. Nota redonda com pouca gente cheira a amigo e família — e todo mundo sente isso.</p>
+  <p style="margin-top:1rem;font-size:.82rem;color:#666">O número 19 saiu do código do próprio site deles.</p>
+</section>
+
+<!-- 3 — a comparação -->
+<section class="tela">
+  <p class="rotulo">Cara a cara</p>
+  <h2>Vocês ganham<br>em <span class="ouro">quase tudo</span>.</h2>
+  <div style="margin-top:2rem">
+    <div class="linha">
+      <div class="e ganha">78</div><div class="meio">avaliações</div><div class="d">19</div>
+    </div>
+    <div class="linha">
+      <div class="e ganha">+1000</div><div class="meio">carros</div><div class="d">500</div>
+    </div>
+    <div class="linha">
+      <div class="e ganha">10 anos</div><div class="meio">de casa</div><div class="d">não diz</div>
+    </div>
+    <div class="linha perde">
+      <div class="e">não tem</div><div class="meio">site</div><div class="d">tem</div>
+    </div>
+    <div class="linha perde">
+      <div class="e">parado</div><div class="meio">instagram</div><div class="d">ativo</div>
+    </div>
+  </div>
+  <div class="caixa">
+    <p class="grande" style="color:#fff">Vocês perdem nas duas únicas coisas que <b>não dependem de talento</b>. Só de aparecer.</p>
+  </div>
+</section>
+
+<!-- 4 — a virada -->
+<section class="tela">
+  <p class="rotulo">O que ninguém copia</p>
+  <div class="soco">
+    Dez anos.<br>
+    Mil carros.<br>
+    <span class="ouro">Setenta e oito<br>pessoas que voltaram<br>pra elogiar.</span>
+  </div>
+  <div class="fio"></div>
+  <p class="grande">O Nexum pode comprar anúncio amanhã.<br>Não pode comprar dez anos.</p>
+</section>
+
+<!-- 5 — a mina -->
+<section class="tela">
+  <p class="rotulo">E tem mais</p>
+  <h2>Mil carros passaram.<br><span class="ouro">78 avaliaram.</span></h2>
+  <div class="fio"></div>
+  <p class="grande">Faltam <b>900 avaliações</b> na mesa. E elas não estão na rua — estão <b>no seu celular</b>, no WhatsApp de quem você já atendeu.</p>
+  <div class="caixa">
+    <p class="grande" style="color:#fff">Não precisa de anúncio. Não precisa de carro novo entrando. Precisa de <span class="ouro">mensagem pra quem já te conhece</span>.</p>
+  </div>
+</section>
+
+<!-- 6 — as perguntas -->
+<section class="tela">
+  <p class="rotulo">Pra eu montar o plano</p>
+  <h2>Três respostas.<br><span class="ouro">Só isso.</span></h2>
+
+  <div class="pergunta">
+    <div class="n">01</div>
+    <div class="q">Se dobrar a procura amanhã, você dá conta?</div>
+    <div class="p">Se você já tá no limite, a gente não traz gente — a gente sobe preço. Muda o plano inteiro.</div>
+    <div class="opts"><span class="opt">Dou conta</span><span class="opt">Tô no limite</span><span class="opt">Tenho folga</span></div>
+  </div>
+
+  <div class="pergunta">
+    <div class="n">02</div>
+    <div class="q">Quantos contatos de cliente antigo tem no celular?</div>
+    <div class="p">Chute serve. 100? 500? 1000? É o tamanho da mina.</div>
+    <div class="opts"><span class="opt">~100</span><span class="opt">~500</span><span class="opt">+1000</span><span class="opt">Não sei</span></div>
+  </div>
+
+  <div class="pergunta">
+    <div class="n">03</div>
+    <div class="q">O Instagram parou por quê?</div>
+    <div class="p">Sem enrolação. Se foi falta de tempo, eu monto um plano de 20 minutos por semana. Se eu não souber, eu monto errado.</div>
+    <div class="opts"><span class="opt">Sem tempo</span><span class="opt">Não deu retorno</span><span class="opt">Cansei</span><span class="opt">Encheu de serviço</span></div>
+  </div>
+</section>
+
+<!-- 7 — rápidas -->
+<section class="tela">
+  <p class="rotulo">E quando der</p>
+  <h2>Quatro coisas que<br>eu <span class="ouro">preciso saber</span>.</h2>
+  <div class="fio"></div>
+  <p class="grande" style="line-height:2.2">
+    Marca da película PPF<br>
+    Quanto dura a vitrificação Kisho<br>
+    Endereço exato e o WhatsApp<br>
+    Ticket médio de cada serviço
+  </p>
+  <div class="caixa">
+    <p>Áudio serve. Manda do jeito que der.</p>
+  </div>
+</section>
+
+<div class="rodape">
+  Santos Estética Automotiva · Limeira/SP<br>
+  Dados do Google e do site do Nexum, julho/2026
+</div>
+
+</body>
+</html>
