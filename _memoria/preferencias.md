@@ -28,6 +28,11 @@ Exemplo real do cliente, colado no /instalar:
 - Frases de efeito intercambiáveis: "cada detalhe importa", "quem não abre mão da excelência", "seu carro merece o melhor", "o mais alto nível".
 - Qualquer coisa que outra estética automotiva poderia copiar e colar sem trocar uma palavra. Se serve pro concorrente, não é padrão Santos.
 - Adjetivo empilhado ("proteção, acabamento e brilho") onde cabe o serviço com nome e sobrenome.
+- **Narração forçada / "comunicação" inventada** (corrigido em 16/07/2026, na área de serviços do site): frases que dramatizam ou criam proximidade artificial em vez de descrever o serviço — "é por onde a cidade conhece a casa", "o couro racha calado", "reparo bem feito não aparece; personalização é pra aparecer", "a diferença da casa". Ele não quer isso. Cortar o floreio, não inventar história em volta do serviço.
+
+## Registro por contexto
+
+O tom "gíria + processo + assinatura" é da **legenda de rede social**. Para **texto descritivo de serviço** (site, descrição de serviço, material institucional) o registro é outro: **descrição direta, técnica, posição de especialista**. Diz o que é o serviço, o processo e o que entrega — e para por aí. Sem gíria dramatizada, sem criar proximidade forçada, sem inventar. A especificidade e o "descreve o processo" continuam valendo; o floreio, não.
 
 ## Estilo geral
 

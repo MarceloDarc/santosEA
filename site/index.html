@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Santos Estética Automotiva — PPF, Vitrificação e Polimento em Limeira/SP</title>
-<meta name="description" content="Estética automotiva em Limeira/SP há mais de 10 anos. PPF, vitrificação com coating Kisho SI-701 e polimento técnico. Mais de mil carros cuidados. 4,8 no Google, 78 avaliações.">
+<meta name="description" content="Estética automotiva em Limeira/SP há mais de uma década. PPF, vitrificação com coating Kisho SI-701 e polimento técnico. Mais de mil carros cuidados. 4,8 no Google, 78 avaliações.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -63,7 +63,9 @@
   }
   .fio.center{margin-inline:auto;background:linear-gradient(90deg,transparent,var(--dourado) 40%,var(--vinho) 100%)}
   .ouro{color:var(--dourado)}
-  .sub{font-size:1.05rem;color:var(--cinza);max-width:52ch}
+  .sub{font-size:1.05rem;line-height:1.45;color:var(--cinza);max-width:52ch}
+  /* afasta a descrição do título (o titulão tem acento/descida que encostava) */
+  h2 + .sub{margin-top:1.9rem}
   .rotulo{
     font-family:var(--corpo);font-weight:600;font-size:.72rem;
     letter-spacing:.22em;text-transform:uppercase;color:var(--dourado);
@@ -117,44 +119,51 @@
 
   /* ---------- hero ---------- */
   .hero{
-    min-height:100svh;display:grid;align-items:center;
-    grid-template-columns:1.1fr .9fr;gap:clamp(2rem,5vw,5rem);
+    position:relative;min-height:100svh;
+    display:flex;align-items:center;
     padding:7rem 0 4rem;
+    background:url('assets/fachada.jpg') no-repeat;
+    background-size:cover;
+    background-position:center 42%;
+    overflow:hidden;
   }
+  /* degradê horizontal: forte na esquerda (texto), suave na direita (imagem) */
+  .hero::before{
+    content:'';position:absolute;inset:0;z-index:1;pointer-events:none;
+    background:
+      linear-gradient(90deg,
+        rgba(3,1,1,.96) 0%,
+        rgba(3,1,1,.9) 28%,
+        rgba(5,1,2,.62) 52%,
+        rgba(5,1,2,.24) 74%,
+        rgba(5,1,2,.04) 100%),
+      linear-gradient(180deg,
+        rgba(3,1,1,.5) 0%, transparent 24%,
+        transparent 66%, rgba(3,1,1,.7) 100%);
+  }
+  .hero-inner{position:relative;z-index:2;width:min(1200px,92vw);margin-inline:auto}
+  .hero-txt{max-width:600px}
+  .hero-txt h1{font-size:clamp(1.9rem,4.4vw,3.3rem);margin:.1rem 0}
   .hero-txt h1 span{display:block}
-  .hero-txt .sub{margin-bottom:2rem}
+  .hero-txt .sub{margin-bottom:1.8rem;color:#dcd8d2}
   .hero-cta{display:flex;gap:1rem;flex-wrap:wrap}
-  .hero-img{position:relative;justify-self:end;width:100%;max-width:440px}
-  .hero-img::before{
-    /* brasa por trás da foto — dá profundidade em vez de recorte chapado */
-    content:'';position:absolute;inset:-14% -8%;z-index:0;
-    background:radial-gradient(closest-side,var(--vinho-brasa),transparent 72%);
-    filter:blur(28px);pointer-events:none;
-  }
-  .hero-img img{
-    position:relative;z-index:1;
-    width:100%;aspect-ratio:9/16;object-fit:cover;
-    border:1px solid rgba(188,144,35,.32);
-    box-shadow:0 30px 70px rgba(0,0,0,.85),0 0 50px rgba(125,4,14,.12);
-  }
-  .hero-img::after{
-    content:'';position:absolute;inset:0;z-index:2;
-    background:linear-gradient(to top,rgba(6,2,2,.85),rgba(125,4,14,.05) 40%,transparent 62%);
-    pointer-events:none;
-  }
   .selo{
-    position:absolute;left:-18px;bottom:26px;z-index:3;
-    background:linear-gradient(135deg,#0e0203,#030001);
+    display:inline-flex;align-items:center;gap:.7rem;margin-top:2rem;
+    background:linear-gradient(135deg,rgba(14,2,3,.82),rgba(3,0,1,.62));
     border-left:3px solid var(--dourado);
-    padding:.75rem 1.25rem;
-    box-shadow:0 14px 40px rgba(0,0,0,.7);
+    padding:.55rem 1.1rem;
+    backdrop-filter:blur(4px);
+    box-shadow:0 14px 40px rgba(0,0,0,.5);
   }
-  .selo b{font-family:var(--display);font-size:1.5rem;display:block;line-height:1}
-  .selo small{font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--cinza)}
+  .selo b{font-family:var(--display);font-size:1.5rem;line-height:1}
+  .selo small{font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cinza)}
   @media(max-width:900px){
-    .hero{grid-template-columns:1fr;padding-top:6rem;text-align:left}
-    .hero-img{justify-self:start;max-width:340px}
-    .selo{left:auto;right:-10px}
+    .hero{padding-top:6rem;background-position:66% center}
+    /* na tela estreita o texto passa por cima da imagem — escurece tudo pra leitura */
+    .hero::before{
+      background:linear-gradient(180deg,rgba(3,1,1,.86),rgba(3,1,1,.62) 46%,rgba(3,1,1,.88));
+    }
+    .hero-txt{max-width:100%}
   }
 
   /* ---------- prova ---------- */
@@ -241,7 +250,7 @@
     content:'';position:absolute;inset:0;pointer-events:none;
     background:linear-gradient(to top,rgba(5,1,2,.7),transparent 52%);
   }
-  .destaque img{
+  .destaque img,.destaque video{
     position:relative;
     aspect-ratio:9/16;object-fit:cover;max-height:600px;width:100%;
     border:1px solid rgba(188,144,35,.3);
@@ -259,17 +268,80 @@
   }
 
   /* ---------- galeria ---------- */
-  .galeria{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
-  .galeria figure{position:relative;overflow:hidden}
-  .galeria img{aspect-ratio:9/16;object-fit:cover;transition:transform .5s;filter:grayscale(.2)}
-  .galeria figure:hover img{transform:scale(1.05);filter:grayscale(0)}
-  .galeria figure{border:1px solid rgba(188,144,35,.18)}
-  .galeria figcaption{
-    position:absolute;left:0;bottom:0;right:0;padding:1rem;
-    background:linear-gradient(to top,rgba(4,1,2,.96),rgba(125,4,14,.10) 58%,transparent);
-    font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;
+  /* masonry orgânico — fotos com alturas naturais, deslocadas */
+  .galeria{columns:5;column-gap:.8rem}
+  .galeria figure{
+    break-inside:avoid;margin:0 0 .8rem;
+    position:relative;overflow:hidden;
+    border:1px solid rgba(188,144,35,.18);
   }
+  .galeria img{width:100%;height:auto;display:block;transition:transform .5s}
+  .galeria figure:hover img{transform:scale(1.04)}
+  @media(max-width:1100px){.galeria{columns:4}}
+  @media(max-width:820px){.galeria{columns:3}}
+  @media(max-width:560px){.galeria{columns:2}}
 
+  .galeria-acao{text-align:center;margin-top:2.6rem}
+  .galeria-modal{
+    position:fixed;inset:0;z-index:200;display:none;
+    background:rgba(3,1,1,.975);
+    overflow-y:auto;padding:clamp(3.5rem,7vw,5.5rem) 0 3rem;
+  }
+  .galeria-modal.aberto{display:block}
+  .galeria-modal-inner{width:min(1200px,92vw);margin-inline:auto}
+  .cabeca-modal{text-align:center;margin-bottom:2.2rem}
+  .galeria-fechar{
+    position:fixed;top:1rem;right:1.25rem;z-index:210;
+    width:48px;height:48px;border-radius:50%;cursor:pointer;
+    background:linear-gradient(135deg,rgba(14,2,3,.92),rgba(3,0,1,.85));
+    border:1px solid rgba(188,144,35,.5);color:var(--dourado-claro);
+    font-size:1.7rem;line-height:1;display:grid;place-items:center;
+    transition:border-color .2s,transform .2s;
+  }
+  .galeria-fechar:hover{border-color:var(--dourado);transform:scale(1.07)}
+
+  /* ---------- depoimentos ---------- */
+  .depo{padding-block:clamp(4rem,9vw,7.5rem)}
+  .depo .cabeca{margin-bottom:0}
+  .depo-track{
+    display:flex;gap:1.25rem;overflow-x:auto;overscroll-behavior-x:contain;
+    scroll-snap-type:x mandatory;scroll-behavior:smooth;
+    margin-top:2.4rem;padding:.6rem 0 1.6rem;
+    scrollbar-width:none;cursor:grab;
+    -webkit-user-select:none;user-select:none;
+  }
+  .depo-track.arrastando{cursor:grabbing;scroll-behavior:auto;scroll-snap-type:none}
+  .depo-track::-webkit-scrollbar{display:none}
+  .depo-card{
+    scroll-snap-align:start;flex:0 0 max(260px,27%);
+    display:flex;flex-direction:column;gap:1rem;min-height:250px;
+    padding:2rem 1.9rem;
+    background:linear-gradient(158deg,rgba(125,4,14,.05) 0%,rgba(8,8,10,.94) 44%,rgba(4,4,5,.97) 100%);
+    border:1px solid rgba(188,144,35,.2);
+    transition:border-color .3s,transform .3s,box-shadow .3s;
+  }
+  .depo-card:hover{
+    border-color:rgba(188,144,35,.45);transform:translateY(-3px);
+    box-shadow:0 18px 44px rgba(0,0,0,.7),0 0 22px rgba(125,4,14,.1);
+  }
+  .depo-aspas{font-family:Georgia,'Times New Roman',serif;font-size:3rem;line-height:.1;height:1.1rem;color:rgba(188,144,35,.5)}
+  .depo-estrelas{display:flex;gap:.12rem;color:var(--dourado);font-size:1rem;letter-spacing:.04em}
+  .depo-estrelas .off{color:rgba(255,255,255,.18)}
+  .depo-texto{font-size:1.02rem;line-height:1.5;color:#d4d4d4;font-style:italic;flex:1}
+  .depo-rodape{margin-top:auto;padding-top:1.1rem;border-top:1px solid rgba(255,255,255,.08);display:flex;align-items:center;gap:.7rem}
+  .depo-avatar{
+    width:44px;height:44px;border-radius:50%;flex-shrink:0;overflow:hidden;position:relative;
+    border:1px solid rgba(188,144,35,.5);background:linear-gradient(135deg,#1a0708,#0a0203);
+  }
+  .depo-avatar img{width:100%;height:100%;object-fit:cover;display:block}
+  .depo-avatar.mono::after,.depo-avatar.semfoto::after{
+    content:attr(data-ini);position:absolute;inset:0;display:grid;place-items:center;
+    font-family:var(--display);font-size:1.15rem;line-height:1;
+    background:linear-gradient(178deg,var(--dourado-claro),var(--dourado) 55%,var(--dourado-escuro));
+    -webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;
+  }
+  .depo-nome{font-weight:600;color:#fff;font-size:.95rem}
+  .depo-meta{font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--cinza);margin-top:.2rem}
   /* ---------- fechamento ---------- */
   .fechar{
     position:relative;text-align:center;
@@ -279,7 +351,7 @@
     border-top:1px solid rgba(188,144,35,.3);
   }
   .fechar h2{margin-bottom:1.2rem}
-  .fechar .sub{margin:0 auto 2rem}
+  .fechar .sub{margin:1.9rem auto 2rem}
 
   /* ---------- rodapé ---------- */
   footer{
@@ -296,6 +368,16 @@
   .creditos{
     margin-top:3rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.08);
     font-size:.78rem;color:#666;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+  }
+  .assinatura{
+    text-align:center;margin-top:1.6rem;
+    font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:#5c5c5c;
+  }
+  .assinatura b{
+    font-family:var(--display);font-weight:400;text-transform:none;
+    font-size:1.25rem;letter-spacing:.03em;margin-left:.45rem;vertical-align:-2px;
+    background:linear-gradient(178deg,var(--dourado-claro),var(--dourado) 55%,var(--dourado-escuro));
+    -webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;
   }
   @media(max-width:760px){.rodape{grid-template-columns:1fr}}
 
@@ -326,44 +408,40 @@
     <a href="#servicos">Serviços</a>
     <a href="#ppf">PPF</a>
     <a href="#vitrificacao">Vitrificação</a>
-    <a href="#casa">A casa</a>
+    <a href="#casa">A Santos</a>
     <a href="#contato" class="ouro">Contato</a>
   </nav>
 </header>
 
-<main class="wrap">
-
-  <!-- ============ HERO ============ -->
-  <section class="hero">
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-inner">
     <div class="hero-txt">
-      <p class="rotulo">Limeira / SP &middot; há mais de 10 anos</p>
+      <p class="rotulo">Limeira / SP &middot; since 2012</p>
       <div class="fio"></div>
-      <h1><span>Dez anos</span><span>cuidando das</span><span class="ouro-grad">naves de Limeira.</span></h1>
+      <h1><span>Há mais de uma década</span><span>cuidando das naves</span><span class="ouro-grad">de Limeira e região.</span></h1>
       <div class="fio"></div>
       <p class="sub">
-        PPF, vitrificação e polimento técnico. Mais de mil carros passaram
-        por aqui — do Tiguan à Porsche. O padrão é o mesmo nos dois.
+        Da lavagem ao PPF. Polimento, vitrificação e proteção de bancos —
+        o carro entra e sai no padrão Santos. 🛡️
       </p>
       <div class="hero-cta">
-        <a href="#contato" class="btn cheio">Chamar no WhatsApp</a>
+        <a href="https://wa.me/5519974159984?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Santos%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener" class="btn cheio">Chamar no WhatsApp</a>
         <a href="#servicos" class="btn">Ver serviços</a>
       </div>
-    </div>
-    <div class="hero-img">
-      <img src="assets/hero-mercedes.jpg" alt="Capô preto espelhado após vitrificação, refletindo o letreiro Santos da oficina">
       <div class="selo">
         <b class="ouro-grad">4,8</b>
         <small>78 avaliações no Google</small>
       </div>
     </div>
-  </section>
-</main>
+  </div>
+</section>
 
 <!-- ============ PROVA ============ -->
 <div class="prova">
   <div class="wrap">
     <div class="prova-grid">
-      <div class="prova-item"><b>10+</b><span>Anos em Limeira</span></div>
+      <div class="prova-item"><b>14</b><span>Anos em Limeira</span></div>
       <div class="prova-item"><b>1.000+</b><span>Carros cuidados</span></div>
       <div class="prova-item"><b>4,8</b><span>No Google · 78 avaliações</span></div>
     </div>
@@ -378,41 +456,43 @@
       <p class="rotulo">O que fazemos</p>
       <div class="fio"></div>
       <h2>Serviços</h2>
-      <p class="sub">Da lavagem que traz você aqui ao PPF que fica anos no carro.</p>
+      <p class="sub">Da lavagem ao PPF, cada serviço com processo próprio e padrão de acabamento definido.</p>
     </div>
 
     <div class="servicos">
       <article class="servico">
         <div class="num">01</div>
-        <h3>Película PPF</h3>
-        <p>Filme transparente por cima da pintura de fábrica. A pedra de estrada e o inseto batem no filme — não no capô. Frontal ou carro completo.</p>
-        <span class="tag">Frontal · Completo</span>
+        <h3>Lavagem completa</h3>
+        <p>Pré-lavagem para remover a sujeira pesada sem atritar o verniz, descontaminação da pintura, limpeza de rodas e caixas de roda, e secagem controlada. Da lavagem básica ao detalhamento premium.</p>
+        <span class="tag">Básica · Premium</span>
       </article>
       <article class="servico">
         <div class="num">02</div>
-        <h3>Vitrificação</h3>
-        <p>Coating cerâmico Kisho SI-701. Realça a cor da pintura e traz o efeito espelhado — aquele que devolve o reflexo inteiro.</p>
-        <span class="tag">Kisho SI-701</span>
+        <h3>Polimento técnico</h3>
+        <p>Correção da pintura com politriz e leitura sob iluminação técnica. Removemos riscos superficiais, hologramas e oxidação até recuperar a nitidez do verniz. É a base de qualquer proteção: vitrificação e PPF assentam melhor sobre pintura corrigida.</p>
       </article>
       <article class="servico">
         <div class="num">03</div>
-        <h3>Polimento técnico</h3>
-        <p>Correção da pintura antes de qualquer proteção. É o passo que ninguém vê e que decide o resultado de todos os outros.</p>
+        <h3>Bancos</h3>
+        <p>Higienização profunda do couro para remover a sujeira impregnada, seguida de hidratação e proteção. Recupera a maciez e reduz o ressecamento e as trincas do uso diário.</p>
       </article>
       <article class="servico">
         <div class="num">04</div>
-        <h3>Lavagem</h3>
-        <p>Da básica à premium. É por onde a maioria conhece a casa — e por onde dá pra ver o cuidado antes de fechar qualquer coisa maior.</p>
+        <h3>Vitrificação</h3>
+        <p>Coating cerâmico japonês Kisho SI-701. Sela a pintura, intensifica a cor e cria o efeito espelhado. A camada hidrofóbica repele água e sujeira e facilita a manutenção. Não é cera: adere ao verniz e dura muito além de uma lavagem.</p>
+        <span class="tag">Kisho SI-701</span>
       </article>
       <article class="servico">
         <div class="num">05</div>
-        <h3>Bancos</h3>
-        <p>Hidratação e proteção de couro. O interior envelhece junto com a pintura, e quase sempre é esquecido.</p>
+        <h3>Película PPF</h3>
+        <p>Filme de poliuretano aplicado sobre a pintura original. Absorve o impacto de pedras, insetos e micro-riscos que chegariam ao verniz. Aplicação frontal ou no carro completo, com recorte ajustado a cada peça.</p>
+        <span class="tag">Frontal · Completo</span>
       </article>
       <article class="servico">
         <div class="num">06</div>
-        <h3>Reparos e repintura</h3>
-        <p>Profissional dedicado só pra isso na equipe. O que não dá pra corrigir no polimento, resolve aqui.</p>
+        <h3>Reparos e pintura</h3>
+        <p>Reparos de pintura e repintura com profissional dedicado na equipe. Também fazemos personalização: pintura de pinças de freio, rodas e detalhes sob medida.</p>
+        <span class="tag">Pintura · Personalização</span>
       </article>
     </div>
   </section>
@@ -423,7 +503,7 @@
       <div>
         <p class="rotulo">Proteção de pintura</p>
         <div class="fio"></div>
-        <h2>A pedra bate<br>no <span class="ouro-grad">filme</span>.</h2>
+        <h2>Aplicação de <span class="ouro-grad">PPF</span>.</h2>
         <p class="sub">
           O PPF é uma película transparente aplicada sobre a pintura original.
           Ela leva o impacto que iria pro capô: pedrisco de estrada, inseto,
@@ -433,31 +513,35 @@
           <li>Frontal — capô, para-choque e a parte que come estrada</li>
           <li>Completo — o carro inteiro sob filme</li>
           <li>Manutenção de PPF já aplicado</li>
-          <li>Película: <span class="pendente">marca a confirmar</span></li>
         </ul>
       </div>
-      <img src="assets/ppf.jpg" alt="Aplicação de película PPF sendo assentada sobre a frente de um carro prata">
+      <video src="assets/ppf-video.mp4" poster="assets/ppf-poster.jpg"
+             autoplay muted loop playsinline preload="metadata"
+             aria-label="Aplicação de película PPF na frente de um carro"></video>
     </div>
   </section>
 
   <!-- ============ VITRIFICAÇÃO ============ -->
   <section id="vitrificacao">
     <div class="destaque">
-      <img src="assets/vitrificacao.jpg" alt="Aplicação de coating com aplicador de microfibra sobre capô escuro, com o letreiro Santos refletido no vidro ao fundo">
+      <video src="assets/vitrificacao-video.mp4" poster="assets/vitrificacao-poster.jpg"
+             autoplay muted loop playsinline preload="metadata"
+             aria-label="Aplicação de vitrificação sobre a pintura de um carro na Santos"></video>
       <div>
-        <p class="rotulo">Coating cerâmico</p>
+        <p class="rotulo">Proteção e brilho</p>
         <div class="fio"></div>
-        <h2>Kisho <span class="ouro-grad">SI-701</span>.</h2>
+        <h2><span class="ouro-grad">Vitrificação</span> de pintura.</h2>
         <p class="sub">
-          Coating cerâmico japonês. Não é cera, não sai na primeira lavagem.
-          Sela a pintura, realça a cor e deixa o reflexo que você vê na foto
-          aí do lado — sem filtro, sem retoque.
+          Uma camada protetora aplicada sobre a pintura para selar e preservar
+          o acabamento. Intensifica a cor, cria o efeito espelhado e forma uma
+          superfície hidrofóbica que repele água e sujeira — a manutenção fica
+          mais simples e a pintura, protegida por muito mais tempo.
         </p>
         <ul class="lista">
-          <li>Realça a cor da pintura</li>
+          <li>Realça a cor e aprofunda o brilho</li>
           <li>Efeito espelhado no acabamento</li>
-          <li>Coating cerâmico japonês — não é cera</li>
-          <li>Duração e manutenção: <span class="pendente">a confirmar</span></li>
+          <li>Superfície hidrofóbica — repele água e sujeira</li>
+          <li>Durabilidade de 1, 3 ou 5 anos</li>
         </ul>
       </div>
     </div>
@@ -467,19 +551,19 @@
   <section id="casa">
     <div class="destaque">
       <div>
-        <p class="rotulo">A casa</p>
+        <p class="rotulo">A Santos</p>
         <div class="fio"></div>
-        <h2>Uma das primeiras<br>de <span class="ouro-grad">Limeira</span>.</h2>
+        <h2>Um especialista<br>para <span class="ouro-grad">cada processo</span>.</h2>
         <p class="sub">
-          Mais de dez anos em Limeira e mais de mil carros. Não é a casa
-          que abriu ano passado surfando a onda do PPF — é onde a cidade
-          traz carro desde antes disso virar moda.
+          Cada serviço fica na mão de quem é especializado nele — do polimento
+          à proteção de pintura. Mais de uma década de experiência sustentando
+          um compromisso que não muda: entregar cada carro no padrão, do começo
+          ao fim.
         </p>
         <ul class="lista">
-          <li>Cinco pessoas na operação</li>
-          <li>Dois dedicados só ao polimento</li>
-          <li>Um profissional só pra reparo e repintura</li>
-          <li>4,8 no Google, com 78 avaliações de gente de Limeira</li>
+          <li>Equipe especializada para cada processo</li>
+          <li>Polimento, PPF, vitrificação, lavagem e reparos no mesmo lugar</li>
+          <li>Mais de uma década de experiência em Limeira</li>
         </ul>
       </div>
       <img src="assets/oficina.jpg" alt="Equipe da Santos trabalhando na oficina">
@@ -489,31 +573,244 @@
   <!-- ============ GALERIA ============ -->
   <section id="galeria">
     <div class="cabeca">
-      <p class="rotulo">Trabalho</p>
+      <p class="rotulo">Galeria Santos</p>
       <div class="fio"></div>
-      <h2>Passou por aqui</h2>
+      <h2><span class="ouro-grad">Naves</span> que passaram por nossas mãos</h2>
     </div>
     <div class="galeria">
-      <figure>
-        <img src="assets/hero-mercedes.jpg" alt="Capô preto espelhado refletindo o letreiro da oficina">
-        <figcaption>Mercedes · vitrificação</figcaption>
-      </figure>
-      <figure>
-        <img src="assets/ppf.jpg" alt="Película PPF sendo aplicada">
-        <figcaption>PPF · aplicação</figcaption>
-      </figure>
-      <figure>
-        <img src="assets/vitrificacao.jpg" alt="Aplicação de coating no capô, com o letreiro Santos refletido no vidro">
-        <figcaption>Vitrificação · aplicação</figcaption>
-      </figure>
-      <figure>
-        <img src="assets/oficina.jpg" alt="Profissional da Santos trabalhando na pintura de um carro">
-        <figcaption>A casa · Limeira</figcaption>
-      </figure>
+      <figure><img src="assets/galeria/foto-01.jpg" alt="Trabalho finalizado na Santos"></figure>
+      <figure><img src="assets/galeria/foto-07.jpg" alt=""></figure>
+      <figure><img src="assets/galeria/foto-12.jpg" alt=""></figure>
+      <figure><img src="assets/galeria/foto-20.jpg" alt=""></figure>
+      <figure><img src="assets/galeria/foto-03.jpg" alt=""></figure>
+      <figure><img src="assets/galeria/foto-15.jpg" alt=""></figure>
+      <figure><img src="assets/galeria/foto-24.jpg" alt=""></figure>
+      <figure><img src="assets/galeria/foto-09.jpg" alt=""></figure>
+      <figure><img src="assets/galeria/foto-05.jpg" alt=""></figure>
+      <figure><img src="assets/galeria/foto-22.jpg" alt=""></figure>
+    </div>
+    <div class="galeria-acao">
+      <button class="btn" id="verGaleria" type="button">Ver galeria completa</button>
+    </div>
+
+    <div class="galeria-modal" id="galeriaModal" aria-hidden="true" role="dialog" aria-label="Galeria completa">
+      <button class="galeria-fechar" id="fecharGaleria" type="button" aria-label="Fechar galeria">&times;</button>
+      <div class="galeria-modal-inner">
+        <div class="cabeca-modal">
+          <p class="rotulo">Galeria Santos</p>
+          <div class="fio center"></div>
+          <h2>Galeria <span class="ouro-grad">completa</span></h2>
+        </div>
+        <div class="galeria">
+          <figure><img src="assets/galeria/foto-01.jpg" loading="lazy" alt=""></figure>
+          <figure><img src="assets/galeria/foto-02.jpg" loading="lazy" alt=""></figure>
+          <figure><img src="assets/galeria/foto-03.jpg" loading="lazy" alt=""></figure>
+          <figure><img src="assets/galeria/foto-04.jpg" loading="lazy" alt=""></figure>
+          <figure><img src="assets/galeria/foto-05.jpg" loading="lazy" alt=""></figure>
+          <figure><img src="assets/galeria/foto-06.jpg" loading="lazy" alt=""></figure>
+          <figure><img src="assets/galeria/foto-07.jpg" loading="lazy" alt=""></figure>
+          <figure><img src="assets/galeria/foto-08.jpg" loading="lazy" alt=""></figure>
+          <figure><img src="assets/galeria/foto-09.jpg" loading="lazy" alt=""></figure>
+          <figure><img src="assets/galeria/foto-10.jpg" loading="lazy" alt=""></figure>
+          <figure><img src="assets/galeria/foto-11.jpg" loading="lazy" alt=""></figure>
+          <figure><img src="assets/galeria/foto-12.jpg" loading="lazy" alt=""></figure>
+          <figure><img src="assets/galeria/foto-13.jpg" loading="lazy" alt=""></figure>
+          <figure><img src="assets/galeria/foto-14.jpg" loading="lazy" alt=""></figure>
+          <figure><img src="assets/galeria/foto-15.jpg" loading="lazy" alt=""></figure>
+          <figure><img src="assets/galeria/foto-16.jpg" loading="lazy" alt=""></figure>
+          <figure><img src="assets/galeria/foto-17.jpg" loading="lazy" alt=""></figure>
+          <figure><img src="assets/galeria/foto-18.jpg" loading="lazy" alt=""></figure>
+          <figure><img src="assets/galeria/foto-19.jpg" loading="lazy" alt=""></figure>
+          <figure><img src="assets/galeria/foto-20.jpg" loading="lazy" alt=""></figure>
+          <figure><img src="assets/galeria/foto-21.jpg" loading="lazy" alt=""></figure>
+          <figure><img src="assets/galeria/foto-22.jpg" loading="lazy" alt=""></figure>
+          <figure><img src="assets/galeria/foto-23.jpg" loading="lazy" alt=""></figure>
+          <figure><img src="assets/galeria/foto-24.jpg" loading="lazy" alt=""></figure>
+          <figure><img src="assets/galeria/foto-25.jpg" loading="lazy" alt=""></figure>
+          <figure><img src="assets/galeria/foto-26.jpg" loading="lazy" alt=""></figure>
+          <figure><img src="assets/galeria/foto-27.jpg" loading="lazy" alt=""></figure>
+        </div>
+      </div>
     </div>
   </section>
 
 </main>
+
+<!-- ============ DEPOIMENTOS ============ -->
+<section class="depo" id="depoimentos">
+  <div class="wrap">
+    <div class="cabeca">
+      <p class="rotulo">O que dizem</p>
+      <div class="fio"></div>
+      <h2>Depoimentos</h2>
+      <p class="sub">Avaliações de clientes reais, direto do nosso Google.</p>
+    </div>
+    <div class="depo-track" id="depoTrack">
+
+      <article class="depo-card">
+        <span class="depo-aspas" aria-hidden="true">&ldquo;</span>
+        <div class="depo-estrelas" aria-label="5 de 5 estrelas">★★★★★</div>
+        <p class="depo-texto">UOWWW!! Que experiência!! Levei meu carro no Santos para lavagem e polimento, o carro ficou impecável! Eles são detalhistas, usam só produtos de marca e são pontuais na entrega. Fiquei encantada!!</p>
+        <div class="depo-rodape">
+          <span class="depo-avatar" data-ini="J">
+            <img src="assets/depoimentos/julia-armelin.jpg" alt="Julia Armelin" onerror="this.closest('.depo-avatar').classList.add('semfoto');this.remove()">
+          </span>
+          <div>
+            <div class="depo-nome">Julia Armelin</div>
+            <div class="depo-meta">Google &middot; 4 meses atrás</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="depo-card">
+        <span class="depo-aspas" aria-hidden="true">&ldquo;</span>
+        <div class="depo-estrelas" aria-label="5 de 5 estrelas">★★★★★</div>
+        <p class="depo-texto">Melhor lugar de Limeira e região, profissional sério, caprichoso. Detalhista, faz um trabalho impecável, super recomendo.</p>
+        <div class="depo-rodape">
+          <span class="depo-avatar" data-ini="A">
+            <img src="assets/depoimentos/ana-claudia.jpg" alt="Ana Cláudia Souza Arruda" onerror="this.closest('.depo-avatar').classList.add('semfoto');this.remove()">
+          </span>
+          <div>
+            <div class="depo-nome">Ana Cláudia Souza Arruda</div>
+            <div class="depo-meta">Google &middot; 4 anos atrás</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="depo-card">
+        <span class="depo-aspas" aria-hidden="true">&ldquo;</span>
+        <div class="depo-estrelas" aria-label="5 de 5 estrelas">★★★★★</div>
+        <p class="depo-texto">Equipe muito profissional e cuidadosa com cada detalhe. O padrão de qualidade deles é realmente diferenciado.</p>
+        <div class="depo-rodape">
+          <span class="depo-avatar" data-ini="A">
+            <img src="assets/depoimentos/andy-dias.jpg" alt="Andy Dias" onerror="this.closest('.depo-avatar').classList.add('semfoto');this.remove()">
+          </span>
+          <div>
+            <div class="depo-nome">Andy Dias</div>
+            <div class="depo-meta">Google &middot; 7 meses atrás</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="depo-card">
+        <span class="depo-aspas" aria-hidden="true">&ldquo;</span>
+        <div class="depo-estrelas" aria-label="5 de 5 estrelas">★★★★★</div>
+        <p class="depo-texto">Fiquei extremamente satisfeita com o atendimento e o serviço no meu carro. Equipe atenciosa, profissional e transparente — explicaram cada detalhe, cumpriram os prazos e entregaram exatamente como prometido. Recomendo de olhos fechados! 🚗💙</p>
+        <div class="depo-rodape">
+          <span class="depo-avatar mono" data-ini="E" aria-hidden="true"></span>
+          <div>
+            <div class="depo-nome">Emanuele Arruda</div>
+            <div class="depo-meta">Google &middot; 7 meses atrás</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="depo-card">
+        <span class="depo-aspas" aria-hidden="true">&ldquo;</span>
+        <div class="depo-estrelas" aria-label="5 de 5 estrelas">★★★★★</div>
+        <p class="depo-texto">Já acompanho o trabalho deste pessoal há algum tempo. Eles têm foco nos detalhes e isso faz toda a diferença!</p>
+        <div class="depo-rodape">
+          <span class="depo-avatar" data-ini="A">
+            <img src="assets/depoimentos/agnaldo-scotton.jpg" alt="Agnaldo Scotton" onerror="this.closest('.depo-avatar').classList.add('semfoto');this.remove()">
+          </span>
+          <div>
+            <div class="depo-nome">Agnaldo Scotton</div>
+            <div class="depo-meta">Google &middot; 5 anos atrás</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="depo-card">
+        <span class="depo-aspas" aria-hidden="true">&ldquo;</span>
+        <div class="depo-estrelas" aria-label="5 de 5 estrelas">★★★★★</div>
+        <p class="depo-texto">Top serviço. Equipe de confiança e muita qualidade. Super recomendo. Parabéns a toda equipe!</p>
+        <div class="depo-rodape">
+          <span class="depo-avatar" data-ini="M">
+            <img src="assets/depoimentos/marcio-marcinho.jpg" alt="Marcio Marcinho" onerror="this.closest('.depo-avatar').classList.add('semfoto');this.remove()">
+          </span>
+          <div>
+            <div class="depo-nome">Marcio Marcinho</div>
+            <div class="depo-meta">Google &middot; 7 meses atrás</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="depo-card">
+        <span class="depo-aspas" aria-hidden="true">&ldquo;</span>
+        <div class="depo-estrelas" aria-label="5 de 5 estrelas">★★★★★</div>
+        <p class="depo-texto">Muito rápido, profissional e serviço excelente! Carro ficou melhor do que no dia que eu peguei ele.</p>
+        <div class="depo-rodape">
+          <span class="depo-avatar" data-ini="L">
+            <img src="assets/depoimentos/leonardo-bueno.jpg" alt="Leonardo Bueno" onerror="this.closest('.depo-avatar').classList.add('semfoto');this.remove()">
+          </span>
+          <div>
+            <div class="depo-nome">Leonardo Bueno</div>
+            <div class="depo-meta">Google &middot; 7 meses atrás</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="depo-card">
+        <span class="depo-aspas" aria-hidden="true">&ldquo;</span>
+        <div class="depo-estrelas" aria-label="5 de 5 estrelas">★★★★★</div>
+        <p class="depo-texto">Empresa diferenciada, ótimo atendimento! Eficácia na entrega, sempre muito bem preparados. Sucesso!</p>
+        <div class="depo-rodape">
+          <span class="depo-avatar" data-ini="A">
+            <img src="assets/depoimentos/ariane-rafaela.jpg" alt="Ariane Rafaela" onerror="this.closest('.depo-avatar').classList.add('semfoto');this.remove()">
+          </span>
+          <div>
+            <div class="depo-nome">Ariane Rafaela</div>
+            <div class="depo-meta">Google &middot; 2 anos atrás</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="depo-card">
+        <span class="depo-aspas" aria-hidden="true">&ldquo;</span>
+        <div class="depo-estrelas" aria-label="5 de 5 estrelas">★★★★★</div>
+        <p class="depo-texto">O meu carro ficou impecável. Estão de parabéns pelo acabamento e pelo zelo com o carro. É sem dúvida um dos melhores de Limeira.</p>
+        <div class="depo-rodape">
+          <span class="depo-avatar" data-ini="R">
+            <img src="assets/depoimentos/renan-silva.jpg" alt="Renan Silva" onerror="this.closest('.depo-avatar').classList.add('semfoto');this.remove()">
+          </span>
+          <div>
+            <div class="depo-nome">Renan Silva</div>
+            <div class="depo-meta">Google &middot; 5 anos atrás</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="depo-card">
+        <span class="depo-aspas" aria-hidden="true">&ldquo;</span>
+        <div class="depo-estrelas" aria-label="5 de 5 estrelas">★★★★★</div>
+        <p class="depo-texto">Este é o melhor especialista em car care de Limeira e região. Atende importados de alto padrão.</p>
+        <div class="depo-rodape">
+          <span class="depo-avatar" data-ini="S">
+            <img src="assets/depoimentos/silas-nunes.jpg" alt="Silas Nunes" onerror="this.closest('.depo-avatar').classList.add('semfoto');this.remove()">
+          </span>
+          <div>
+            <div class="depo-nome">Silas Nunes</div>
+            <div class="depo-meta">Google &middot; 5 anos atrás</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="depo-card">
+        <span class="depo-aspas" aria-hidden="true">&ldquo;</span>
+        <div class="depo-estrelas" aria-label="5 de 5 estrelas">★★★★★</div>
+        <p class="depo-texto">Atendimento excelente e um serviço de qualidade.</p>
+        <div class="depo-rodape">
+          <span class="depo-avatar mono" data-ini="J" aria-hidden="true"></span>
+          <div>
+            <div class="depo-nome">Jonatas Silva</div>
+            <div class="depo-meta">Google &middot; 5 anos atrás</div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
 
 <!-- ============ FECHAMENTO ============ -->
 <section class="fechar" id="contato">
@@ -522,10 +819,10 @@
     <div class="fio center"></div>
     <h2>Traz a <span class="ouro-grad">nave</span>.</h2>
     <p class="sub">
-      Manda uma foto do carro no WhatsApp e diz o que você quer fazer.
-      A gente avalia e te retorna.
+      Entre em contato com a Santos e a gente define junto o melhor
+      para o seu veículo.
     </p>
-    <a href="#" class="btn cheio" id="zap-principal">Chamar no WhatsApp</a>
+    <a href="https://wa.me/5519974159984?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Santos%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener" class="btn cheio" id="zap-principal">Chamar no WhatsApp</a>
   </div>
 </section>
 
@@ -535,13 +832,13 @@
     <div class="rodape">
       <div>
         <img src="assets/logo.svg" alt="Santos Estética Automotiva">
-        <p>Estética automotiva em Limeira/SP<br>há mais de dez anos.</p>
+        <p>Estética automotiva em Limeira/SP<br>há mais de uma década.</p>
       </div>
       <div>
         <h4>Contato</h4>
-        <a href="#" id="zap-rodape">WhatsApp — <span class="pendente">número a confirmar</span></a>
+        <a href="https://wa.me/5519974159984?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Santos%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener" id="zap-rodape">WhatsApp — (19) 97415-9984</a>
         <a href="https://instagram.com/santosesteticaautomotiva" target="_blank" rel="noopener">@santosesteticaautomotiva</a>
-        <p><span class="pendente">Endereço a confirmar</span></p>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=Rua+Boa+Vista+50+Limeira+SP+13486110" target="_blank" rel="noopener">Rua Boa Vista, 50 — Limeira/SP<br>CEP 13486-110</a>
       </div>
       <div>
         <h4>Serviços</h4>
@@ -555,14 +852,67 @@
       <span>&copy; 2026 Santos Estética Automotiva · Limeira/SP</span>
       <span>4,8 no Google · 78 avaliações</span>
     </div>
+    <p class="assinatura">Desenvolvido por <b>Darc</b></p>
   </div>
 </footer>
 
-<a href="#contato" class="zap">WhatsApp</a>
+<a href="https://wa.me/5519974159984?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Santos%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener" class="zap">WhatsApp</a>
 
 <script>
   const h = document.querySelector('header');
   addEventListener('scroll', () => h.classList.toggle('solido', scrollY > 60), {passive:true});
+
+  // carrossel de depoimentos — segurar e arrastar
+  (function(){
+    const track = document.getElementById('depoTrack');
+    if(!track) return;
+
+    let down=false, startX=0, startScroll=0;
+    track.addEventListener('pointerdown', e=>{
+      if(e.pointerType!=='mouse') return;
+      down=true; startX=e.clientX; startScroll=track.scrollLeft;
+      track.classList.add('arrastando');
+    });
+    track.addEventListener('pointermove', e=>{
+      if(!down) return;
+      track.scrollLeft = startScroll - (e.clientX - startX);
+    });
+    const soltar = () => { if(down){ down=false; track.classList.remove('arrastando'); } };
+    track.addEventListener('pointerup', soltar);
+    track.addEventListener('pointercancel', soltar);
+    track.addEventListener('dragstart', e=>e.preventDefault());
+
+    // auto-rolagem suave (pausa no hover e no arraste)
+    const reduz = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const passo = () => {
+      const card = track.querySelector('.depo-card');
+      const gap = parseFloat(getComputedStyle(track).gap) || 20;
+      return card ? card.offsetWidth + gap : track.clientWidth * 0.8;
+    };
+    const noFim = () => track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
+    let timer=null;
+    const auto = () => { if(down) return; noFim() ? track.scrollTo({left:0,behavior:'smooth'}) : track.scrollBy({left:passo(),behavior:'smooth'}); };
+    const iniciar = () => { if(!reduz && !timer) timer=setInterval(auto,5000); };
+    const parar = () => { clearInterval(timer); timer=null; };
+    track.addEventListener('pointerenter', parar);
+    track.addEventListener('pointerleave', ()=>{ soltar(); iniciar(); });
+    track.addEventListener('touchstart', parar, {passive:true});
+    iniciar();
+  })();
+
+  // modal da galeria completa
+  (function(){
+    const abrir = document.getElementById('verGaleria');
+    const modal = document.getElementById('galeriaModal');
+    const fechar = document.getElementById('fecharGaleria');
+    if(!abrir || !modal) return;
+    const abre = () => { modal.classList.add('aberto'); modal.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; };
+    const fecha = () => { modal.classList.remove('aberto'); modal.setAttribute('aria-hidden','true'); document.body.style.overflow=''; };
+    abrir.addEventListener('click', abre);
+    fechar.addEventListener('click', fecha);
+    modal.addEventListener('click', e => { if(e.target === modal) fecha(); });
+    addEventListener('keydown', e => { if(e.key === 'Escape' && modal.classList.contains('aberto')) fecha(); });
+  })();
 </script>
 
 </body>

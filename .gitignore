@@ -31,3 +31,5 @@ dados/*
 site/fotos/videos/
 *.mp4
 *.mov
+# ...mas os vídeos já comprimidos e otimizados que fazem parte do site entram
+!site/assets/*.mp4
