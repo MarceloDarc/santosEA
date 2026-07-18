@@ -365,20 +365,30 @@
   .rodape h4{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--dourado);margin-bottom:1rem;font-weight:600}
   .rodape p,.rodape a{font-size:.92rem;color:var(--cinza);display:block;margin-bottom:.5rem}
   .rodape a:hover{color:var(--branco)}
+  /* contato — botões quadrados de rede social + endereço em texto */
+  .rodape-social{display:flex;gap:.7rem;margin-bottom:1.1rem}
+  .rodape-social a{
+    width:48px;height:48px;margin:0;display:grid;place-items:center;
+    border:1px solid rgba(188,144,35,.4);color:var(--branco);
+    background:linear-gradient(135deg,rgba(125,4,14,.12),rgba(0,0,0,.35));
+    transition:border-color .25s,color .25s,transform .2s,box-shadow .25s;
+  }
+  .rodape-social a:hover{
+    border-color:var(--dourado);color:var(--dourado-claro);
+    transform:translateY(-2px);
+    box-shadow:0 0 0 1px rgba(188,144,35,.22),0 10px 26px rgba(125,4,14,.22);
+  }
+  .rodape-social svg{width:22px;height:22px;display:block}
   .creditos{
     margin-top:3rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.08);
     font-size:.78rem;color:#666;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;
   }
   .assinatura{
-    text-align:center;margin-top:1.6rem;
-    font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:#5c5c5c;
+    display:flex;align-items:center;justify-content:center;gap:.55rem;
+    margin-top:1.6rem;
+    font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#e6e6e6;font-weight:400;
   }
-  .assinatura b{
-    font-family:var(--display);font-weight:400;text-transform:none;
-    font-size:1.25rem;letter-spacing:.03em;margin-left:.45rem;vertical-align:-2px;
-    background:linear-gradient(178deg,var(--dourado-claro),var(--dourado) 55%,var(--dourado-escuro));
-    -webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;
-  }
+  .assinatura img{height:30px;width:auto;display:block}
   @media(max-width:760px){.rodape{grid-template-columns:1fr}}
 
   .pendente{
@@ -388,14 +398,14 @@
 
   .zap{
     position:fixed;right:1.25rem;bottom:1.25rem;z-index:60;
-    background:linear-gradient(140deg,var(--dourado-claro),var(--dourado) 50%,var(--dourado-escuro));
-    color:#1a0203;
-    padding:.9rem 1.4rem;font-weight:600;font-size:.78rem;
-    letter-spacing:.12em;text-transform:uppercase;
-    box-shadow:0 8px 30px rgba(0,0,0,.8),0 0 18px rgba(125,4,14,.2);
+    width:58px;height:58px;border-radius:50%;
+    display:grid;place-items:center;
+    background:#25d366;color:#fff;
+    box-shadow:0 8px 30px rgba(0,0,0,.55),0 0 0 1px rgba(0,0,0,.15);
     transition:transform .2s,box-shadow .2s;
   }
-  .zap:hover{transform:translateY(-2px)}
+  .zap:hover{transform:translateY(-2px);box-shadow:0 12px 34px rgba(0,0,0,.6)}
+  .zap svg{width:32px;height:32px;display:block}
 
   @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
@@ -423,10 +433,10 @@
       <div class="fio"></div>
       <p class="sub">
         Da lavagem ao PPF. Polimento, vitrificação e proteção de bancos —
-        o carro entra e sai no padrão Santos. 🛡️
+        o carro entra e sai no padrão Santos.
       </p>
       <div class="hero-cta">
-        <a href="https://wa.me/5519974159984?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Santos%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener" class="btn cheio">Chamar no WhatsApp</a>
+        <a href="https://wa.me/5519974159984?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Santos%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener" class="btn cheio">Solicitar orçamento</a>
         <a href="#servicos" class="btn">Ver serviços</a>
       </div>
       <div class="selo">
@@ -442,7 +452,7 @@
   <div class="wrap">
     <div class="prova-grid">
       <div class="prova-item"><b>14</b><span>Anos em Limeira</span></div>
-      <div class="prova-item"><b>1.000+</b><span>Carros cuidados</span></div>
+      <div class="prova-item"><b data-count="5000" data-prefix="+">+5.000</b><span>Carros cuidados</span></div>
       <div class="prova-item"><b>4,8</b><span>No Google · 78 avaliações</span></div>
     </div>
   </div>
@@ -836,8 +846,20 @@
       </div>
       <div>
         <h4>Contato</h4>
-        <a href="https://wa.me/5519974159984?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Santos%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener" id="zap-rodape">WhatsApp — (19) 97415-9984</a>
-        <a href="https://instagram.com/santosesteticaautomotiva" target="_blank" rel="noopener">@santosesteticaautomotiva</a>
+        <div class="rodape-social">
+          <a href="https://instagram.com/santosesteticaautomotiva" target="_blank" rel="noopener" aria-label="Instagram da Santos">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="5"/>
+              <circle cx="12" cy="12" r="4.2"/>
+              <circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/>
+            </svg>
+          </a>
+          <a href="https://wa.me/5519974159984?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Santos%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener" id="zap-rodape" aria-label="WhatsApp da Santos">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 1.8c2.17 0 4.2.84 5.73 2.38a8.06 8.06 0 0 1 2.38 5.73c0 4.48-3.64 8.12-8.11 8.12a8.1 8.1 0 0 1-4.13-1.13l-.3-.18-3.11.82.83-3.04-.2-.31a8.03 8.03 0 0 1-1.26-4.28c0-4.48 3.64-8.12 8.11-8.12Zm-2.6 4.37c-.14 0-.36.05-.55.26-.19.2-.72.7-.72 1.72s.74 2 .84 2.14c.1.14 1.44 2.29 3.6 3.12 1.79.71 2.16.57 2.55.53.39-.03 1.25-.51 1.43-1 .18-.5.18-.92.13-1-.05-.09-.19-.14-.4-.24-.21-.11-1.25-.62-1.44-.69-.19-.07-.34-.1-.48.11-.14.2-.55.68-.68.82-.12.14-.25.16-.46.05-.21-.1-.9-.33-1.71-1.05a6.4 6.4 0 0 1-1.18-1.47c-.12-.21-.01-.32.09-.43.09-.1.21-.25.32-.38.1-.13.14-.22.21-.36.07-.14.03-.27-.02-.38-.05-.1-.46-1.12-.64-1.53-.16-.4-.33-.34-.46-.35l-.39-.01Z"/>
+            </svg>
+          </a>
+        </div>
         <a href="https://www.google.com/maps/search/?api=1&amp;query=Rua+Boa+Vista+50+Limeira+SP+13486110" target="_blank" rel="noopener">Rua Boa Vista, 50 — Limeira/SP<br>CEP 13486-110</a>
       </div>
       <div>
@@ -849,14 +871,16 @@
       </div>
     </div>
     <div class="creditos">
-      <span>&copy; 2026 Santos Estética Automotiva · Limeira/SP</span>
+      <span>&copy; 2026 Santos Estética Automotiva · Limeira/SP · Todos os direitos reservados.</span>
       <span>4,8 no Google · 78 avaliações</span>
     </div>
-    <p class="assinatura">Desenvolvido por <b>Darc</b></p>
+    <p class="assinatura">Desenvolvido por <img src="assets/darc.png" alt="Darc"></p>
   </div>
 </footer>
 
-<a href="https://wa.me/5519974159984?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Santos%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener" class="zap">WhatsApp</a>
+<a href="https://wa.me/5519974159984?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Santos%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener" class="zap" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 .5C7.4.5.5 7.4.5 16c0 2.8.7 5.5 2.1 7.9L.4 31.6l7.9-2.1c2.3 1.3 5 1.9 7.7 1.9 8.6 0 15.5-6.9 15.5-15.5S24.6.5 16 .5zm0 28.3c-2.5 0-4.9-.7-7-1.9l-.5-.3-4.7 1.2 1.3-4.6-.3-.5c-1.4-2.2-2.1-4.7-2.1-7.2C2 8.5 8.3 2.2 16 2.2S30 8.5 30 16 23.7 28.8 16 28.8zm8.5-9.6c-.5-.2-2.8-1.4-3.2-1.5-.4-.2-.7-.2-1 .2-.3.5-1.1 1.5-1.4 1.7-.3.2-.5.3-1 .1-.5-.2-2-.7-3.8-2.4-1.4-1.3-2.4-2.8-2.6-3.3-.3-.5 0-.7.2-1 .2-.2.5-.5.7-.8.2-.3.3-.5.5-.8.2-.3.1-.6 0-.8-.1-.2-1-2.5-1.4-3.4-.4-.9-.7-.8-1-.8h-.8c-.3 0-.7.1-1.1.5-.4.4-1.5 1.4-1.5 3.5s1.5 4.1 1.7 4.4c.2.3 3 4.6 7.3 6.4 1 .4 1.8.7 2.4.9 1 .3 1.9.3 2.6.2.8-.1 2.4-1 2.7-1.9.3-.9.3-1.7.2-1.9-.1-.2-.4-.3-.9-.5z"/></svg>
+</a>
 
 <script>
   const h = document.querySelector('header');
@@ -912,6 +936,32 @@
     fechar.addEventListener('click', fecha);
     modal.addEventListener('click', e => { if(e.target === modal) fecha(); });
     addEventListener('keydown', e => { if(e.key === 'Escape' && modal.classList.contains('aberto')) fecha(); });
+  })();
+
+  // contagem animada dos números da prova (0 → alvo, ao entrar na tela)
+  (function(){
+    const alvos = document.querySelectorAll('[data-count]');
+    if(!alvos.length) return;
+    const reduz = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const fmt = (n, pref) => (pref||'') + Math.round(n).toLocaleString('pt-BR');
+    const anima = el => {
+      const alvo = parseFloat(el.dataset.count);
+      const pref = el.dataset.prefix || '';
+      if(reduz){ el.textContent = fmt(alvo, pref); return; }
+      const dur = 1800, ini = performance.now();
+      const passo = agora => {
+        const t = Math.min((agora - ini) / dur, 1);
+        const eased = 1 - Math.pow(1 - t, 3); // easeOutCubic
+        el.textContent = fmt(alvo * eased, pref);
+        if(t < 1) requestAnimationFrame(passo);
+      };
+      requestAnimationFrame(passo);
+    };
+    alvos.forEach(el => el.textContent = fmt(0, el.dataset.prefix));
+    const obs = new IntersectionObserver((ents, o) => {
+      ents.forEach(ent => { if(ent.isIntersecting){ anima(ent.target); o.unobserve(ent.target); } });
+    }, {threshold:.5});
+    alvos.forEach(el => obs.observe(el));
   })();
 </script>
 
